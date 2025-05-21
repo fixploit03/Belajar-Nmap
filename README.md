@@ -1,6 +1,6 @@
 # Belajar Nmap
 
-![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/nmap%20banner.jpeg)
+![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/nmap.jpeg)
 
 Repositori untuk belajar Nmap (Bahasa Indonesia)
 
