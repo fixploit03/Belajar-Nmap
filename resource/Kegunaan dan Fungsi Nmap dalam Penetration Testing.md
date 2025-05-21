@@ -1,8 +1,8 @@
 #  Kegunaan dan Fungsi Nmap dalam Penetration Testing
 
 ## A. Tujuan Penggunaan Nmap dalam Penetration Testing
-- Mengumpulkan informasi awal tentang jaringan target (information gathering).
-- Menentukan permukaan serangan (attack surface) melalui deteksi `port` dan `layanan terbuka`.
+- Mengumpulkan informasi awal tentang jaringan target (`information gathering`).
+- Menentukan permukaan serangan (`attack surface`) melalui deteksi `port` dan `layanan terbuka`.
 - Mengidentifikasi kerentanan layanan secara langsung menggunakan `script NSE`.
 - Merancang strategi eksploitasi berdasarkan hasil pemindaian.
 
@@ -82,18 +82,18 @@
 - `Open-source` & `gratis`, Dapat digunakan bebas tanpa lisensi.
 - Kompatibel dengan banyak sistem operasi.
 - Cepat dan efisien, bisa digunakan dalam jaringan besar.
-- Scripting engine (NSE) sangat fleksibel dan powerfull.
+- `Scripting engine` (`NSE`) sangat fleksibel dan powerfull.
 - Didukung banyak tools lain, seperti `Metasploit` dan `Zenmap`.
 
 ## E. Integrasi dengan Tools Lain
 | Tool | Fungsi dalam Integrasi dengan Nmap |
 |:--:|:--:|
-| [Metasploit](https://www.metasploit.com/) | Mengimpor hasil Nmap untuk eksploitasi otomatis |
+| [Metasploit](https://www.metasploit.com/) | Mengimpor hasil `Nmap` untuk eksploitasi otomatis |
 | [Nikto](https://www.cirt.net/Nikto2) | Melanjutkan scanning web service yang ditemukan |
-| [Vulners](https://vulners.com/) | Digunakan bersama NSE untuk mendeteksi CVE secara akurat |
-| [Zenmap](https://nmap.org/zenmap/) | GUI visual untuk pemula atau analisis jaringan visual |
+| [Vulners](https://vulners.com/) | Digunakan bersama `NSE` untuk mendeteksi `CVE` secara akurat |
+| [Zenmap](https://nmap.org/zenmap/) | `GUI` visual untuk pemula atau analisis jaringan visual |
 
 ## F. Kesimpulan
-- Nmap adalah alat utama dalam penetration testing.
-- Membantu pentester untuk mengidentifikasi dan menganalisis target secara akurat.
-- Dengan kombinasi `port scan`, `OS detect`, dan `script NSE`, Nmap memberi pondasi yang kuat untuk eksploitasi lebih lanjut.
+- `Nmap` adalah alat utama dalam `penetration testing`.
+- Membantu `pentester` untuk mengidentifikasi dan menganalisis target secara akurat.
+- Dengan kombinasi `port scan`, `OS detect`, dan `script NSE`, `Nmap` memberi pondasi yang kuat untuk eksploitasi lebih lanjut.
