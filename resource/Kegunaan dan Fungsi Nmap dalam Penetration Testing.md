@@ -9,54 +9,60 @@
 ## B. Fungsi-Fungsi Utama Nmap dalam Pentest
 
 - **1. Host Discovery (Menemukan Host Aktif)**  
+  
   `Tujuan`: Menemukan perangkat yang aktif di jaringan.
 
-  Contoh:
+  **Contoh:**
 
   ```
   nmap -sn 192.168.1.0/24
   ```
 
 - **2. Port Scanning (Pemindaian Port)**  
+  
   `Tujuan`: Mengetahui port mana yang terbuka dan layanan apa yang berjalan.
 
-  Contoh:
+  **Contoh:**
 
   ```
   nmap -sS 192.168.1.10
   ```
 
 - **3. Service & Version Detection**  
+  
   `Tujuan`: Mengidentifikasi layanan beserta versinya.
 
-  Contoh:
+  **Contoh:**
 
   ```
   nmap -sV 192.168.1.10
   ```
 
 - **4. OS Detection**  
+  
   `Tujuan`: Mengetahui sistem operasi yang digunakan target.
 
-  Contoh:
+  **Contoh:**
 
   ```
   nmap -O 192.168.1.10
   ```
 
 - **5. Aggressive Scan (Pemindaian Agresif)**  
+  
   `Tujuan`: Melakukan deteksi lengkap termasuk `traceroute`, `OS`, `layanan`, dan `script NSE`.
 
-  Contoh:
+  **Contoh:**
 
   ```
   nmap -A 192.168.1.10
   ```
 
 - **6. Nmap Scripting Engine (NSE)**  
+  
   `Tujuan`: Melakukan otomatisasi scanning, deteksi `kerentanan`, `bruteforce login`, `dll`.
 
-  Contoh:
+  **Contoh:**
 
   ```
   nmap --script=vuln 192.168.1.10
