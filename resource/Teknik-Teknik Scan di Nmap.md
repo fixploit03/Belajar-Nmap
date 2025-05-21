@@ -239,3 +239,7 @@ nmap -sI 192.168.1.100 192.168.1.1
 - **Filtered Port**
 
   ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/Idle%20Scan%20(FIltered).png)
+
+## Catatan Penting:
+- Beberapa teknik (seperti `Null`, `FIN`, `Xmas`) tidak efektif pada sistem modern seperti `Windows` karena perbedaan implementasi `TCP stack``.
+- Pemindaian harus dilakukan dengan izin resmi karena dapat dianggap sebagai aktivitas ilegal jika dilakukan tanpa izin.
