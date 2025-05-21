@@ -148,16 +148,94 @@ nmap -sU 192.168.1.1
 nmap -sN 192.168.1.1
 ```
 
+**Respons**
+- **Open Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20Null%20Scan%20(Open).png)
+
+- **Closed Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20Null%20Scan%20(Closed).png)
+
+- **Filtered Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20Null%20Scan%20(Filtered).png)
+
+## 7. TCP FIN Scan (-sF) 
+- **Deskripsi**: Mengirim paket `TCP` dengan flag `FIN`.
+- **Cara Kerja**: Mirip dengan `Null scan`, tetapi menggunakan flag `FIN`. Port tertutup mengembalikan `RST`, sementara port terbuka tidak merespons.
+- **Keunggulan**: Dapat melewati beberapa `firewall` sederhana.
+- **Kekurangan**: Tidak efektif pada sistem seperti `Windows` yang tidak mengikuti `RFC 793`.
+- **Penggunaan**: Digunakan untuk pemindaian `stealth` pada sistem `Unix/Linux`.
+
+**Contoh:**
+
+```
+nmap -sF 192.168.1.1
+```
 
 **Respons**
 - **Open Port**
 
-  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/UDP%20Scan%20(Open).png)
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20FIN%20Scan%20(Open).png)
 
 - **Closed Port**
 
-  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/UDP%20Scan%20(Closed).png)
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20FIN%20Scan%20(Closed).png)
 
 - **Filtered Port**
 
-  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/UDP%20Scan%20(Filtered).png)
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20FIN%20Scan%20(Filtered).png)
+
+## 8. TCP Xmas Scan (-sX)
+- **Deskripsi**: Mengirim paket `TCP` dengan flag `FIN`, `PSH`, dan `URG` (disebut `Xmas tree` karena flag yang menyala seperti `lampu natal`).
+- **Cara Kerja**: Sama seperti `Null` dan `FIN scan`, port tertutup mengembalikan `RST`, port terbuka tidak merespons.
+- **Keunggulan**: Dapat digunakan untuk menghindari deteksi pada sistem tertentu.
+- **Kekurangan**: Tidak bekerja pada banyak sistem modern, terutama `Windows`.
+- **Penggunaan**: Digunakan untuk pemindaian khusus pada sistem `Unix/Linux`.
+
+**Contoh:**
+
+```
+nmap -sX 192.168.1.1
+```
+
+**Respons**
+- **Open Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20Xmas%20Scan%20(Open).png)
+
+- **Closed Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20Xmas%20Scan%20(Closed).png)
+
+- **Filtered Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20Xmas%20Scan%20(Filtered).png)
+
+
+## 9. Idle Scan (-sI)
+- **Deskripsi**: Teknik pemindaian `stealth` yang menggunakan `zombie host` untuk memindai target tanpa jejak langsung dari pemindai.
+- **Cara Kerja**: Memanfaatkan prediksi nomor `ID IP` dari `zombie host` untuk mengirim paket palsu ke target. Status port ditentukan berdasarkan perubahan nomor `ID IP zombie`.
+- **Keunggulan**: Sangat sulit dilacak karena pemindaian tampak berasal dari `zombie host`.
+- **Kekurangan**: Sulit diatur, memerlukan `zombie host` yang cocok, dan lambat.
+- **Penggunaan**: Digunakan untuk pemindaian rahasia dalam pengujian keamanan tingkat lanjut.
+
+**Contoh:**
+
+```
+nmap -sI 192.168.1.100 192.168.1.1
+```
+
+**Respons**
+- **Open Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/Idle%20Scan%20(Open).png)
+
+- **Closed Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/Idle%20Scan%20(Closed).png)
+
+- **Filtered Port**
+
+  ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/Idle%20Scan%20(FIltered).png)
