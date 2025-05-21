@@ -3,10 +3,10 @@
 Teknik scanning di Nmap merupakan inti dari kemampuannya dalam mengidentifikasi sistem target selama penetration testing. Masing-masing teknik memiliki `tujuan`, `tingkat stealth` (tersembunyi), dan `efektivitas` yang berbeda.
 
 ## 1. TCP SYN Scan (-sS)
-- **Deskripsi**: Disebut juga `stealth scan`, ini adalah teknik pemindaian `TCP` default `Nmap`. Mengirim paket `SYN` ke port, target tanpa menyelesaikan koneksi `TCP` penuh (3-way handshake).
+- **Deskripsi**: Disebut juga `stealth scan`, ini adalah teknik pemindaian `TCP` default `Nmap`. Mengirim paket `SYN` ke port, target tanpa menyelesaikan koneksi `TCP` penuh (`3-way handshake`).
 - **Cara Kerja**: Nmap mengirim paket `SYN`, dan jika target merespons dengan `SYN/ACK`, port dianggap terbuka. Jika `RST` (reset) diterima, port dianggap tertutup. Nmap tidak mengirim `ACK` kembali, sehingga koneksi tidak selesai.
 - **Keunggulan**: Cepat, tidak terdeteksi oleh beberapa sistem `logging` karena tidak ada koneksi penuh.
-- **Kekurangan**: Membutuhkan hak akses `root` (di Unix) untuk membuat paket `TCP` mentah.
+- **Kekurangan**: Membutuhkan hak akses `root` (di `Unix`) untuk membuat paket `TCP` mentah.
 - **Penggunaan**: Ideal untuk pemindaian cepat dan diam-diam pada jaringan besar.
 
 **Contoh:**
@@ -29,7 +29,7 @@ nmap -sS 192.168.1.1
   ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/TCP%20SYN%20Scan%20(Filtered).png)
   
 ## 2. TCP Connect Scan (-sT)
-- **Deskripsi**: Menggunakan koneksi `TCP` penuh (3-way handshake: `SYN`, `SYN/ACK`, `ACK`) untuk memeriksa status port.
+- **Deskripsi**: Menggunakan koneksi `TCP` penuh (`3-way handshake`: `SYN`, `SYN/ACK`, `ACK`) untuk memeriksa status port.
 - **Cara Kerja**: Nmap memulai koneksi `TCP` penuh dengan target, lalu menutupnya jika port terbuka. Jika koneksi ditolak (`RST`), port dianggap tertutup.
 - **Keunggulan**: Tidak memerlukan hak akses `root`, cocok untuk pengguna `non-admin`.
 - **Kekurangan**: Lebih lambat dan lebih mudah terdeteksi karena koneksi penuh dicatat oleh sistem target.
@@ -136,7 +136,7 @@ nmap -sU 192.168.1.1
   ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/UDP%20Scan%20(Filtered).png)
 
 ## 6. TCP NULL Scan (sN)
-- **Deskripsi**: Mengirim paket `TCP` tanpa flag (null packet).
+- **Deskripsi**: Mengirim paket `TCP` tanpa flag (`null packet`).
 - **Cara Kerja**: Jika port tertutup, target mengirim `RST`. Jika terbuka, biasanya tidak ada respons (sesuai `RFC 793`).
 - **Keunggulan**: Dapat menghindari deteksi oleh beberapa sistem keamanan karena tidak menggunakan flag standar.
 - **Kekurangan**: Tidak bekerja pada sistem yang tidak mengikuti `RFC 793` (misalnya, `Windows`).
