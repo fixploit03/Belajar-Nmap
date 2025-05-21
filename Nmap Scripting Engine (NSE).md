@@ -15,7 +15,7 @@
 
 - **1. Dasar Penggunaan Script**
 
-  Format umum untuk menggunakan script `NSE`:
+  Format umum untuk menggunakan `script NSE`:
 
   ```
   nmap --script <nama_script> <target>
