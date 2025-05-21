@@ -1,6 +1,6 @@
-# A. Apa itu Nmap?
+# A. Apa Itu Nmap?
 
-[Nmap](https://nmap.org/), singkatan dari Network Mapper, adalah sebuah tool open-source yang digunakan untuk memetakan jaringan dan melakukan pemindaian (scanning) terhadap `host`, `port`, serta `layanan` yang berjalan di dalam sebuah jaringan komputer. Nmap sering digunakan oleh `administrator jaringan`, `profesional keamanan siber`, dan `penetration tester` untuk:
+[Nmap](https://nmap.org/), singkatan dari `Network Mapper`, adalah sebuah tool open-source yang digunakan untuk memetakan jaringan dan melakukan pemindaian (scanning) terhadap `host`, `port`, serta `layanan` yang berjalan di dalam sebuah jaringan komputer. Nmap sering digunakan oleh `administrator jaringan`, `profesional keamanan siber`, dan `penetration tester` untuk:
 - Mengidentifikasi perangkat yang aktif (live hosts) di jaringan
 - Mengetahui port mana saja yang terbuka pada perangkat tersebut
 - Mendeteksi layanan dan versi software yang berjalan pada port terbuka
@@ -21,7 +21,7 @@
 
 ## C. Keunggulan Nmap
 - Open-source dan gratis
-- Mendukung berbagai platform: `Linux`, `Windows`, `macOS`, `BSD`
+- Mendukung berbagai platform: `Linux`, `Windows`, `macOS`, `BSD` dan `lainnya`
 - Fleksibel dan bisa dipakai untuk scan jaringan kecil hingga sangat besar
 - Memiliki banyak opsi scanning dan scripting untuk berbagai kebutuhan
-- Banyak digunakan oleh profesional dan komunitas keamanan siber di seluruh dunia
+- Banyak digunakan oleh `profesional` dan `komunitas keamanan siber` di seluruh dunia
