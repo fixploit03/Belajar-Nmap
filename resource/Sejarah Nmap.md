@@ -59,7 +59,7 @@
 ## F. Dampak dan Pengaruh Nmap
 - **Standar de facto**: `Nmap` menjadi alat pemindai jaringan yang paling dikenal dan banyak dipakai di dunia keamanan.
 - **Open-source**: Membantu mempopulerkan konsep `open-source` di bidang keamanan jaringan.
-- **Komunitas aktif**: Banyak pengguna dan developer yang berkontribusi membuat `script NSE` dan fitur baru.
+- **Komunitas aktif**: Banyak pengguna dan developer yang berkontribusi membuat script `NSE` dan fitur baru.
 - **Inspirasi**: Menjadi inspirasi bagi banyak software keamanan lainnya dan alat audit jaringan.
 - **Pendidikan**: Digunakan secara luas untuk mengajarkan konsep jaringan dan keamanan di perguruan tinggi dan pelatihan profesional.
 - **Etika**: Membantu proses audit dan testing keamanan dengan cara yang legal dan terstruktur.
