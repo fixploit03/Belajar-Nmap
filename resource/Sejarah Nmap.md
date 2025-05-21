@@ -5,8 +5,8 @@
 - Tahun Rilis Pertama: `1997`
 - Latar Belakang Pembuatan:
    - Pada tahun `1990-an`, alat pemindai jaringan yang ada masih sangat terbatas, lambat, dan sebagian besar bersifat komersial atau proprietary.
-   - Fyodor melihat kebutuhan akan alat pemindai jaringan yang cepat, efisien, dan dapat diakses oleh siapa saja (open-source).
-   - Dengan tujuan tersebut, Fyodor mengembangkan Nmap sebagai software open-source yang mudah digunakan dan dapat diandalkan.
+   - `Fyodor` melihat kebutuhan akan alat pemindai jaringan yang `cepat`, `efisien`, dan `dapat diakses oleh siapa saja` (open-source).
+   - Dengan tujuan tersebut, `Fyodor` mengembangkan Nmap sebagai software open-source yang mudah digunakan dan dapat diandalkan.
  
 ## B. Versi Awal dan Fitur Dasar Nmap
 - Versi awal Nmap fokus pada dua fungsi utama:
@@ -22,7 +22,7 @@
      - `SYN Scan` (Stealth Scan): Metode scanning yang cepat dan sulit terdeteksi.
      - `TCP Connect Scan`: Cara scanning standar menggunakan koneksi `TCP` penuh.
    - Penambahan kemampuan:
-     - Deteksi Sistem Operasi (OS Detection): Nmap bisa menganalisa paket dan mencoba mengidentifikasi `OS` target.
+     - Deteksi Sistem Operasi (OS Detection): Nmap bisa menganalisa paket dan mencoba mengidentifikasi `OS target`.
      - Deteksi Versi Layanan (Version Detection): Mengetahui versi aplikasi yang berjalan pada port terbuka.
 
 **Pertengahan 2000-an**
@@ -59,7 +59,7 @@
 ## F. Dampak dan Pengaruh Nmap
 - **Standar de facto**: Nmap menjadi alat pemindai jaringan yang paling dikenal dan banyak dipakai di dunia keamanan.
 - **Open-source**: Membantu mempopulerkan konsep open-source di bidang keamanan jaringan.
-- **Komunitas aktif**: Banyak pengguna dan developer yang berkontribusi membuat script `NSE` dan fitur baru.
+- **Komunitas aktif**: Banyak pengguna dan developer yang berkontribusi membuat `script NSE` dan fitur baru.
 - **Inspirasi**: Menjadi inspirasi bagi banyak software keamanan lainnya dan alat audit jaringan.
 - **Pendidikan**: Digunakan secara luas untuk mengajarkan konsep jaringan dan keamanan di perguruan tinggi dan pelatihan profesional.
 - **Etika**: Membantu proses audit dan testing keamanan dengan cara yang legal dan terstruktur.
