@@ -8,7 +8,7 @@ Sebelum mulai scanning, penting untuk memahami struktur dasar perintah Nmap:
 nmap [opsi] [target]
 ```
 
-Penjelasan:
+**Penjelasan:**
 
 | Komponen | Keterangan|
 |:--:|:--:|
@@ -16,7 +16,7 @@ Penjelasan:
 | `[opsi]` | Metode `scan`, `teknik`, `script`, `dll` |
 | `[target]` | `IP address`, `hostname`, atau `rentang IP` |
 
-Contoh Sederhana:
+**Contoh Sederhana:**
 
 ```
 nmap 192.168.1.1
@@ -87,7 +87,7 @@ PORT     STATE SERVICE
 443/tcp  open  https
 ```
 
-Penjelasan:
+**Penjelasan:**
 
 | Bagian Output	| Keterangan |
 |:--:|:--:|
@@ -98,7 +98,7 @@ Penjelasan:
 | `STATE` | Status port (`open`, `closed`, atau `filtered`) |
 | `SERVICE` | Nama layanan yang umum berjalan di port tersebut |
 
-Contoh Status Port:
+**Contoh Status Port:**
 
 | Status | Keterangan |
 |:--:|:--:|
