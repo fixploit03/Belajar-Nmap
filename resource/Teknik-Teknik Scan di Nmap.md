@@ -1,6 +1,6 @@
 # Teknik-Teknik Scan di Nmap
 
-Teknik scanning di Nmap merupakan inti dari kemampuannya dalam mengidentifikasi sistem target selama penetration testing. Masing-masing teknik memiliki `tujuan`, `tingkat stealth` (tersembunyi), dan `efektivitas` yang berbeda.
+Teknik scanning di `Nmap` merupakan inti dari kemampuannya dalam mengidentifikasi sistem target selama `penetration testing`. Masing-masing teknik memiliki `tujuan`, `tingkat stealth` (tersembunyi), dan `efektivitas` yang berbeda.
 
 ## 1. TCP SYN Scan (-sS)
 - **Deskripsi**: Disebut juga `stealth scan`, ini adalah teknik pemindaian `TCP` default `Nmap`. Mengirim paket `SYN` ke port, target tanpa menyelesaikan koneksi `TCP` penuh (`3-way handshake`).
@@ -30,7 +30,7 @@ nmap -sS 192.168.1.1
   
 ## 2. TCP Connect Scan (-sT)
 - **Deskripsi**: Menggunakan koneksi `TCP` penuh (`3-way handshake`: `SYN`, `SYN/ACK`, `ACK`) untuk memeriksa status port.
-- **Cara Kerja**: Nmap memulai koneksi `TCP` penuh dengan target, lalu menutupnya jika port terbuka. Jika koneksi ditolak (`RST`), port dianggap tertutup.
+- **Cara Kerja**: `Nmap` memulai koneksi `TCP` penuh dengan target, lalu menutupnya jika port terbuka. Jika koneksi ditolak (`RST`), port dianggap tertutup.
 - **Keunggulan**: Tidak memerlukan hak akses `root`, cocok untuk pengguna `non-admin`.
 - **Kekurangan**: Lebih lambat dan lebih mudah terdeteksi karena koneksi penuh dicatat oleh sistem target.
 - **Penggunaan**: Digunakan ketika `SYN scan` tidak memungkinkan, misalnya pada sistem tanpa akses `root`.
