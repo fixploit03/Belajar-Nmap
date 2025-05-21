@@ -12,7 +12,7 @@ Repositori untuk belajar Nmap (Bahasa Indonesia)
 - [Struktur Perintah Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Struktur%20Perintah%20Nmap.md)
 - [Teknik-Teknik Scan di Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Teknik-Teknik%20Scan%20di%20Nmap.md)
 - [Scan Port dan Host Lebih Lanjut](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Scan%20Port%20dan%20Host%20Lebih%20Lanjut.md)
-- [Nmap Scripting Engine](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Nmap%20Scripting%20Engine%20(NSE).md)
+- [Nmap Scripting Engine (NSE)](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Nmap%20Scripting%20Engine%20(NSE).md)
 
 
 
