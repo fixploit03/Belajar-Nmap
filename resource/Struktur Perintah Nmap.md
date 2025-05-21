@@ -2,7 +2,7 @@
 
 ## A. Struktur Perintah Nmap
 
-Sebelum mulai scanning, penting untuk memahami struktur dasar perintah Nmap:
+Sebelum mulai `scanning`, penting untuk memahami struktur dasar perintah `Nmap`:
 
 ```
 nmap [opsi] [target]
@@ -40,13 +40,13 @@ Berikut adalah beberapa perintah dasar yang wajib diketahui oleh pemula:
 
 - **2. Port Scan Dasar (TCP SYN Scan)**  
   
-  Melakukan pemindaian port standar (TCP).
+  Melakukan pemindaian port standar (`TCP`).
 
   ```
   nmap -sS 192.168.1.1
   ```
   
-  Scan cepat dan stealthy (tidak membuat koneksi penuh).
+  Scan cepat dan `stealthy` (tidak membuat koneksi penuh).
 
 - **3. Scan Beberapa Target Sekaligus**  
 
@@ -74,7 +74,7 @@ Berikut adalah beberapa perintah dasar yang wajib diketahui oleh pemula:
 
 ## C. Memahami Output Hasil Scan
 
-Saat menjalankan Nmap, hasilnya akan menampilkan informasi seperti:
+Saat menjalankan `Nmap`, hasilnya akan menampilkan informasi seperti:
 
 ```
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-05-21 10:48 WIB
@@ -107,13 +107,13 @@ PORT     STATE SERVICE
 | `filtered` | Tidak ada respons. Mungkin diblokir `firewall` |
 
 ## D. Tips Dasar untuk Pemula
-- Gunakan opsi `-v` untuk output lebih rinci (verbose).
+- Gunakan opsi `-v` untuk output lebih rinci (`verbose`).
 
   ```
   nmap -v 192.168.1.1
   ```
 
-- Gunakan `-Pn` jika target tidak merespons ping (ICMP diblokir).
+- Gunakan `-Pn` jika target tidak merespons ping (`ICMP diblokir`).
 
   ```
   nmap -Pn 192.168.1.1
