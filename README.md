@@ -36,4 +36,6 @@
 - [Tips dan Trik Menggunakan Nmap Efektif](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Tips%20dan%20Trik%20Menggunakan%20Nmap%20Efektif.md)
 - [Penutup](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Penutup.md)
   
-Segera bolo (tahap finishing)...
+> Jika repositori ini merasa bermanfaat, tolong beri repositori ini star (⭐) agar semua orang bisa menemukan repositori ini juga terima kasih.
+
+**Rofi (Fixploit03)**
