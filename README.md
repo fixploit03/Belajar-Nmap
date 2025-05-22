@@ -5,6 +5,7 @@
 Repositori untuk belajar Nmap (Bahasa Indonesia)
 
 ## Daftar Isi
+- [Pendahuluan](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md)
 - [Apa Itu Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Apa%20Itu%20Nmap%3F.md)
 - [Sejarah Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Sejarah%20Nmap.md)
 - [Kegunaan dan Fungsi Nmap dalam Penetration Testing](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Kegunaan%20dan%20Fungsi%20Nmap%20dalam%20Penetration%20Testing.md)
