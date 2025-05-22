@@ -1,11 +1,16 @@
-- Apa Itu Nmap?.md
-- Sejarah Nmap.md
-- Kegunaan dan Fungsi Nmap dalam Penetration Testing.md
-- Instalasi Nmap.md
-- Struktur Perintah Nmap.md
-- Teknik-Teknik Scan di Nmap.md
-- Scan Port dan Host Lebih Lanjut.md
-- Nmap Scripting Engine.md
-- Output dan Reporting Nmap.md
-- Integrasi Nmap dengan Tools Penetration Testing Lain.md
-- Kasus Praktis Penggunaan Nmap.md
+- Pendahuluan
+- Apa Itu Nmap?
+- Sejarah Nmap
+- Kegunaan dan Fungsi Nmap dalam Penetration Testing
+- Instalasi Nmap
+- Struktur Perintah Nmap
+- Teknik-Teknik Scan di Nmap | (tinggal -sn (ping scan), -sV (version scan) dan -O (OS detection scan) |
+- Scan Port dan Host Lebih Lanjut
+- Nmap Scripting Engine (NSE)
+- Output dan Reporting Nmap
+- Integrasi Nmap dengan Tools Penetration Testing Lain
+- Kasus Praktis Penggunaan Nmap
+- Tips dan Trik Menggunakan Nmap Efektif
+- Penutup
+
+*Sama uji kebenarannya dengan tes langsung*
