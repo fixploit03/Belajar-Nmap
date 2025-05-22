@@ -1,6 +1,6 @@
 ## Pendahuluan
 
-Dalam era digital yang serba terkoneksi saat ini, keamanan jaringan menjadi salah satu pilar utama dalam menjaga kestabilan sistem informasi dan perlindungan data. Ancaman seperti `port terbuka yang tidak diketahui`, `service yang rentan`, atau `konfigurasi jaringan yang lemah` dapat membuka celah bagi `peretas` untuk mengeksploitasi sistem. Untuk itulah dibutuhkan alat yang andal dan akurat dalam melakukan pemetaan jaringan serta identifikasi potensi risiko, dan di sinilah `Nmap` (`Network Mapper`) memainkan peran krusialnya.
+Dalam era digital yang serba terkoneksi saat ini, keamanan jaringan menjadi salah satu pilar utama dalam menjaga kestabilan sistem informasi dan perlindungan data. Ancaman seperti `port terbuka yang tidak diketahui`, `service yang rentan`, atau `konfigurasi jaringan yang lemah` dapat membuka celah bagi `peretas` untuk mengeksploitasi sistem. Untuk itulah dibutuhkan alat yang andal dan akurat dalam melakukan `pemetaan jaringan` serta `identifikasi potensi risiko`, dan di sinilah `Nmap` (`Network Mapper`) memainkan peran krusialnya.
 
 `Nmap` adalah salah satu tools `open-source` paling terkenal dan paling banyak digunakan dalam dunia `cybersecurity` dan `network auditing`. Dengan kemampuan untuk `memindai port`, `mendeteksi service`, `sistem operasi`, `topologi jaringan`, hingga `menemukan kerentanan` menggunakan `NSE` (`Nmap Scripting Engine`), `Nmap` menjadi alat wajib bagi seorang `ethical hacker`, `penetration tester`, `network administrator`, dan `sysadmin`.
 
