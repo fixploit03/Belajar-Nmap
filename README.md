@@ -8,8 +8,17 @@
 
 <div align="center">
   <b>(Bahasa Indonesia)</b>
-</div>
-  
+</div><br>
+
+<p align="center">
+  <img src="https://img.shields.io/github/repo-size/fixploit03/Belajar-Nmap?label=Repository%20Size" alt="Repository Size">
+  <img src="https://img.shields.io/github/last-commit/fixploit03/Belajar-Nmap?label=Last%20Commit" alt="Last Commit">
+  <img src="https://img.shields.io/github/stars/fixploit03/Belajar-Nmap?style=social&label=Stars" alt="Stars">
+  <img src="https://img.shields.io/github/license/fixploit03/Belajar-Nmap?label=License&color=blue" alt="MIT License">
+  <img src="https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Advanced-blueviolet" alt="Level">
+  <img src="https://img.shields.io/badge/Language-Indonesian-green" alt="Language">
+</p>
+
 ## Daftar Isi
 - [Pendahuluan](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md)
 - [Apa Itu Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Apa%20Itu%20Nmap%3F.md)
