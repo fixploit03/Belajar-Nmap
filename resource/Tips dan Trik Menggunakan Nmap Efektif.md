@@ -6,7 +6,7 @@
 
 Saat scan jaringan besar atau banyak port, proses bisa memakan waktu. Berikut adalah tips mempercepat scanning tanpa mengorbankan banyak akurasi:
 
-**Gunakan Opsi Timing:**
+**Gunakan Opsi Timing (-T<0-5>):**
 
 ```
 nmap -T4 192.168.1.0/24
@@ -42,7 +42,7 @@ Menentukan jumlah `probe` per detik.
 
 `Firewall` dan `IDS` (`Intrusion Detection System`) akan menandai scan yang terlalu cepat atau mencurigakan. Untuk menghindari ini:
 
-**Gunakan Stealth Scan:**
+**Gunakan Stealth Scan (-sS):**
 
 ```
 nmap -sS 192.168.1.1
@@ -93,7 +93,7 @@ Gabungkan teknik scanning agar hasil lebih komprehensif dan akurat.
 nmap -sS -sV -O -A -T4 -Pn 192.168.1.1
 ```
 
-Penjelasan:
+**Penjelasan:**
 - `-sS`: `Stealth scan` (`TCP SYN`)
 - `-sV`: Deteksi `versi layanan`
 - `-O`: Deteksi `OS`
@@ -109,7 +109,7 @@ nmap -sS -sV --script vuln -p 21,22,80,443 192.168.1.1
 
 `Scan stealth` + `deteksi service` + `vulnerability scan`.
 
-## Ringkasan Tips Efektif
+## 4. Ringkasan Tips Efektif
 
 | Tujuan | Tips |
 |:--:|:--:|
