@@ -116,7 +116,7 @@ nmap -sV --script vulners -p 80,443 192.168.1.10
 
 **Output**: Daftar `CVE` yang relevan berdasarkan versi layanan (misalnya, `Apache 2.4.41 vulnerable to CVE-2021-41773`).
 
-## D. Kesimpulan
+## Kesimpulan
 
 `Nmap Scripting Engine` (`NSE`) adalah salah satu fitur utama yang menjadikan `Nmap` alat yang sangat fleksibel untuk pengujian keamanan jaringan. Dengan `NSE`, pengguna dapat:
 - Melakukan analisis mendalam terhadap layanan jaringan, seperti `mengidentifikasi versi perangkat lunak` atau `konfigurasi`.
