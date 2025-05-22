@@ -8,7 +8,7 @@
 - **Deskripsi**: Menyimpan hasil scan dalam format teks biasa, seperti yang ditampilkan di terminal.
 - **Cocok untuk**: Dibaca langsung oleh manusia, dokumentasi manual.
 
-**Contoh:**
+**Contoh Perintah:**
 
 ```
 nmap -sV -oN hasil_scan.txt 192.168.1.1
@@ -33,7 +33,7 @@ MAC Address: 08:00:27:50:80:74 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
 - **Deskripsi**: Menyimpan output dalam format `XML`. Sangat cocok untuk parsing atau integrasi otomatis dengan tool lain.
 - **Cocok untuk**: Tool otomatis, integrasi dengan aplikasi pentest seperti `Faraday`, `Dradis`, `dll`.
 
-**Contoh:**
+**Contoh Perintah:**
 
 ```
 nmap -sS -oX hasil_scan.xml 192.168.1.1
@@ -86,7 +86,7 @@ xsltproc hasil_scan.xml -o hasil_scan.html
 - Deskripsi: Menyimpan output dalam gaya `leetspeak` (`s|<rIpt kIddi3`). Hanya untuk hiburan.
 - Cocok untuk: Tujuan `non-serius` / `lelucon`.
 
-**Contoh:**
+**Contoh Perintah:**
 
 ```
 nmap -sS -oS hasil_lucu.txt 127.0.0.1
@@ -111,7 +111,7 @@ NMap don3: 1 IP adDrESs (1 ho$t up) scannED In 0.35 s3c0nds
 - **Deskripsi**: Output dalam format satu baris per host, mudah dicari menggunakan `grep`, `awk`, atau `sed`.
 - **Cocok untuk**: Otomasi `shell scripting`, filter cepat dengan `CLI tools`.
 
-**Contoh:**
+**Contoh Perintah:**
 
 ```
 nmap -sS -oG hasil_scan.grep 192.168.1.1
@@ -136,7 +136,7 @@ grep open hasil_scan.grep | cut -d " " -f 2,5
 - Deskripsi: Menyimpan hasil dalam tiga format utama sekaligus (`.nmap`, `.xml`, dan `.gnmap`) dengan satu prefix.
 - Cocok untuk: Backup lengkap hasil scan dalam satu perintah.
 
-**Contoh:**
+**Contoh Perintah:**
 
 ```
 nmap -sV -oA hasil_lengkap 192.168.1.1
