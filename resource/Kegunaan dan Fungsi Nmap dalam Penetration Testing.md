@@ -93,7 +93,7 @@
 | [Vulners](https://vulners.com/) | Digunakan bersama `NSE` untuk mendeteksi `CVE` secara akurat |
 | [Zenmap](https://nmap.org/zenmap/) | `GUI` visual untuk pemula atau analisis jaringan visual |
 
-## Kesimpulan
+## F. Kesimpulan
 - `Nmap` adalah alat utama dalam `penetration testing`.
 - Membantu `pentester` untuk mengidentifikasi dan menganalisis target secara akurat.
 - Dengan kombinasi `port scan`, `OS detect`, dan `script NSE`, `Nmap` memberi pondasi yang kuat untuk eksploitasi lebih lanjut.
