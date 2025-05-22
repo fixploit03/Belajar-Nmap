@@ -15,6 +15,6 @@ Repositori untuk belajar Nmap (Bahasa Indonesia)
 - [Nmap Scripting Engine (NSE)](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Nmap%20Scripting%20Engine%20(NSE).md)
 - [Output dan Reporting Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Output%20dan%20Reporting%20Nmap.md)
 - [Integrasi Nmap dengan Tools Penetration Testing Lain](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Integrasi%20Nmap%20dengan%20Tools%20Penetration%20Testing%20Lain.md)
-
+- [Kasus Praktis Penggunaan Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Kasus%20Praktis%20Penggunaan%20Nmap.md)
 
 Segera...
