@@ -154,5 +154,5 @@ Untuk menjalankan `Nmap` dengan `script NSE`:
 nmap --script <nama_script> <target>
 ```
 
-## Kesimpulan
+## I. Kesimpulan
 Memahami struktur folder dan file penting di `Nmap` sangat penting untuk `konfigurasi`, `penyesuaian`, dan `pemecahan masalah`. `Linux` dan `macOS` memiliki struktur serupa karena basis `Unix`, sementara `Windows` menggunakan pendekatan berbasis `installer` dengan direktori terpusat. Pastikan untuk memeriksa izin akses dan driver tambahan (seperti `Npcap` di `Windows`) untuk memastikan `Nmap` berfungsi optimal.
