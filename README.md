@@ -19,6 +19,8 @@
   <img src="https://img.shields.io/badge/Language-Indonesian-green" alt="Language">
 </p>
 
+> **Disclaimer**: Materi ini disediakan hanya untuk tujuan edukasi dan pembelajaran. Dilarang keras menggunakan informasi di dalamnya untuk aktivitas yang melanggar hukum. Segala penyalahgunaan materi sepenuhnya menjadi tanggung jawab individu masing-masing. Penulis tidak bertanggung jawab atas konsekuensi yang timbul, baik di dunia maupun di akhirat.
+
 ## Daftar Isi
 - [Pendahuluan](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md)
 - [Apa Itu Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Apa%20Itu%20Nmap%3F.md)
