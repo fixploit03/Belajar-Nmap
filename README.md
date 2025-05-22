@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/github/stars/fixploit03/Belajar-Nmap?style=social&label=Stars" alt="Stars">
   <img src="https://img.shields.io/github/license/fixploit03/Belajar-Nmap?label=License&color=blue" alt="MIT License">
   <img src="https://img.shields.io/badge/Level-Beginner%20%E2%86%92%20Advanced-blueviolet" alt="Level">
-  <img src="https://img.shields.io/badge/Language-Indonesian-green" alt="Language">
+  <img src="https://img.shields.io/badge/Language-Indonesian-red" alt="Language">
 </p>
 
 > **Disclaimer**: Materi ini disediakan hanya untuk tujuan edukasi dan pembelajaran. Dilarang keras menggunakan informasi di dalamnya untuk aktivitas yang melanggar hukum. Segala penyalahgunaan materi sepenuhnya menjadi tanggung jawab individu masing-masing. Penulis tidak bertanggung jawab atas konsekuensi yang timbul, baik di dunia maupun di akhirat.
