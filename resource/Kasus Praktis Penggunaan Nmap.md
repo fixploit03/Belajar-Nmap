@@ -23,11 +23,11 @@
    ```
 
    **Penjelasan:**
-   - **-sS**: Melakukan `TCP SYN scan` untuk mendeteksi port `TCP` yang terbuka secara cepat dan diam-diam.
-   - **-sV**: Mendeteksi versi layanan yang berjalan pada port terbuka (misalnya, versi `Apache` atau `SSH`).
-   - **-O**: Mendeteksi sistem operasi dan karakteristik perangkat berdasarkan `TCP/IP stack`.
-   - **-T4**: Mengatur kecepatan pemindaian (skala `0-5`, `4` untuk cepat namun stabil).
-   - **Target**: Subnet `192.168.100.0/24` (`256` alamat IP).
+   - `-sS`: Melakukan `TCP SYN scan` untuk mendeteksi port `TCP` yang terbuka secara cepat dan diam-diam.
+   - `-sV`: Mendeteksi versi layanan yang berjalan pada port terbuka (misalnya, versi `Apache` atau `SSH`).
+   - `-O`: Mendeteksi sistem operasi dan karakteristik perangkat berdasarkan `TCP/IP stack`.
+   - `-T4`: Mengatur kecepatan pemindaian (skala `0-5`, `4` untuk cepat namun stabil).
+   - `Target`: Subnet `192.168.100.0/24` (`256` alamat IP).
 
 **Output Penting:**
 - `Alamat IP` dan `nama host` (`hostname`) perangkat aktif.
@@ -157,11 +157,11 @@
    ```
 
    **Penjelasan:**
-   - **-sS**: Melakukan `TCP SYN scan` untuk mendeteksi port `TCP` terbuka secara cepat dan diam-diam.
-   - **-sV**: Mengidentifikasi versi layanan (misalnya, `Telnet`, `HTTP`, atau `RTSP`) yang berjalan pada port.
-   - **-O**: Mencoba mendeteksi `sistem operasi` atau `firmware` perangkat berdasarkan `TCP/IP stack`.
-   - **-p-**: Memindai semua port (`1-65535`) untuk memastikan tidak ada port `IoT` yang terlewat (misalnya, `23` untuk `Telnet`, `554` untuk `RTSP`).
-   - **Target**: Alamat IP spesifik perangkat `IoT` (contoh: `192.168.0.100`).
+   - `-sS`: Melakukan `TCP SYN scan` untuk mendeteksi port `TCP` terbuka secara cepat dan diam-diam.
+   - `-sV`: Mengidentifikasi versi layanan (misalnya, `Telnet`, `HTTP`, atau `RTSP`) yang berjalan pada port.
+   - `-O`: Mencoba mendeteksi `sistem operasi` atau `firmware` perangkat berdasarkan `TCP/IP stack`.
+   - `-p-`: Memindai semua port (`1-65535`) untuk memastikan tidak ada port `IoT` yang terlewat (misalnya, `23` untuk `Telnet`, `554` untuk `RTSP`).
+   - `Target`: Alamat IP spesifik perangkat `IoT` (contoh: `192.168.0.100`).
 
 
 **3. Analisis Keamanan dengan Script NSE:**
@@ -173,7 +173,7 @@
    **Penjelasan:**
    - `--script default,safe`: Menjalankan script `NSE` dalam kategori `default` (script aman dan umum seperti `http-title`) dan `safe (script yang tidak mengganggu sistem).
    - Port `23` (`Telnet`), `80` (`HTTP`), dan `554` (`RTSP`) dipilih karena sering digunakan pada perangkat `IoT` seperti `kamera IP` atau `router`.
-   - Contoh script relevan: `http-title` (mengambil judul halaman web), `rtsp-methods` (memeriksa metode `RTSP`), atau `telnet-encryption` (memeriksa dukungan enkripsi `Telnet`).
+   - **Contoh script relevan**: `http-title` (mengambil judul halaman web), `rtsp-methods` (memeriksa metode `RTSP`), atau `telnet-encryption` (memeriksa dukungan enkripsi `Telnet`).
 
 **4. Pemeriksaan Kredensial Default:**
 
@@ -193,7 +193,7 @@
 
 **Output Penting:**
 - **Perangkat Aktif**: `Daftar IP` dan `hostname` perangkat `IoT` (misalnya, `192.168.0.100` - `Camera-IP`).
-- **Port dan Layanan**: Port terbuka (misalnya, `23/tcp` open `telnet`, `80/tcp` open `http`, `554/tcp` open `rtsp`) beserta versi layanan (contoh: `lighttpd 1.4.45`).
+- **Port dan Layanan**: Port terbuka (misalnya, `23/tcp open telnet`, `80/tcp open http`, `554/tcp open rtsp`) beserta versi layanan (contoh: `lighttpd 1.4.45`).
 - **Sistem Operasi**: Informasi seperti `Linux 2.6.x` atau `embedded firmware` (jika terdeteksi).
 - **Hasil Script NSE**: Misalnya, `http-title: Camera Web Interface` atau `telnet-brute: Valid credentials found: admin:admin`.
 - **Kerentanan**: Indikasi layanan rentan (misalnya, `Telnet` tanpa enkripsi) atau `firmware` usang berdasarkan versi layanan.
