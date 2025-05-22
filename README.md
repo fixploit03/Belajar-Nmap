@@ -18,5 +18,6 @@ Repositori untuk belajar Nmap (Bahasa Indonesia)
 - [Integrasi Nmap dengan Tools Penetration Testing Lain](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Integrasi%20Nmap%20dengan%20Tools%20Penetration%20Testing%20Lain.md)
 - [Kasus Praktis Penggunaan Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Kasus%20Praktis%20Penggunaan%20Nmap.md)
 - [Tips dan Trik Menggunakan Nmap Efektif](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Tips%20dan%20Trik%20Menggunakan%20Nmap%20Efektif.md)
-
+- [Penutup](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Penutup.md)
+  
 Segera bolo...
