@@ -2,8 +2,14 @@
 
 ![](https://github.com/fixploit03/Belajar-Nmap/blob/main/img/nmap.jpg)
 
-Repositori untuk belajar Nmap (Bahasa Indonesia)
+<div align="center">
+  <b>Repositori untuk belajar Nmap</b>
+</div>
 
+<div align="center">
+  <b>(Bahasa Indonesia)</b>
+</div>
+  
 ## Daftar Isi
 - [Pendahuluan](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md)
 - [Apa Itu Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Apa%20Itu%20Nmap%3F.md)
