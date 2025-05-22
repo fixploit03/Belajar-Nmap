@@ -128,12 +128,6 @@ nmap --traceroute 192.168.1.100
 
 **Kegunaan**: Membantu memahami topologi jaringan dan mengidentifikasi masalah konektivitas.
 
-## Catatan Penting
-- `Host Discovery` adalah langkah krusial untuk efisiensi pemindaian, karena hanya host aktif yang akan dipindai lebih lanjut.
-- Kombinasi opsi (misalnya, `-PE` `-PS22`,`80`) dapat digunakan untuk meningkatkan akurasi deteksi.
-- Pertimbangkan `firewall` dan kebijakan jaringan target untuk memilih metode yang tepat.
-- Selalu gunakan `Nmap` dengan izin yang sah untuk menghindari masalah hukum.
-
 ## Contoh Kombinasi Perintah
 
 ```
@@ -141,3 +135,9 @@ nmap -sn -PE -PS22,80 192.168.1.0/24 --traceroute
 ```
 
 Perintah ini melakukan `ping scan` dengan `ICMP Echo` dan `TCP SYN` ke port `22` dan `80`, lalu melacak rute ke `host` aktif.
+
+## Catatan Penting
+- `Host Discovery` adalah langkah krusial untuk efisiensi pemindaian, karena hanya host aktif yang akan dipindai lebih lanjut.
+- Kombinasi opsi (misalnya, `-PE` `-PS22`,`80`) dapat digunakan untuk meningkatkan akurasi deteksi.
+- Pertimbangkan `firewall` dan kebijakan jaringan target untuk memilih metode yang tepat.
+- Selalu gunakan `Nmap` dengan izin yang sah untuk menghindari masalah hukum.
