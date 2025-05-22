@@ -6,4 +6,6 @@
 - Teknik-Teknik Scan di Nmap.md
 - Scan Port dan Host Lebih Lanjut.md
 - Nmap Scripting Engine.md
+- Output dan Reporting Nmap.md
+- Integrasi Nmap dengan Tools Penetration Testing Lain.md
 - Kasus Praktis Penggunaan Nmap.md
