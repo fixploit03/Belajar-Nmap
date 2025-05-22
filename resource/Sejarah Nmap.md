@@ -64,7 +64,7 @@
 - **Pendidikan**: Digunakan secara luas untuk mengajarkan konsep jaringan dan keamanan di perguruan tinggi dan pelatihan profesional.
 - **Etika**: Membantu proses audit dan testing keamanan dengan cara yang legal dan terstruktur.
 
-## G. Kesimpulan
+## Kesimpulan
 - `Nmap` dibuat oleh `Fyodor` pada `1997` untuk mengisi kebutuhan alat pemindai jaringan yang `cepat`, `efisien`, dan `gratis`.
 - Dari versi sederhana, `Nmap` berkembang menjadi tool yang sangat powerful dengan berbagai fitur canggih.
 - Pengenalan `NSE` menambah dimensi baru pada `Nmap`, menjadikannya platform audit keamanan yang fleksibel.
