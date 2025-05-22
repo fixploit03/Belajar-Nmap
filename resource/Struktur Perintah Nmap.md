@@ -106,7 +106,7 @@ PORT     STATE SERVICE
 | `closed` | Port tertutup, tapi host merespons |
 | `filtered` | Tidak ada respons. Mungkin diblokir `firewall` |
 
-## D. Tips Dasar untuk Pemula
+## Tips Dasar untuk Pemula
 - Gunakan opsi `-v` untuk output lebih rinci (`verbose`).
 
   ```
