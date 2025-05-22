@@ -5,12 +5,19 @@
 `Nmap` bukan sekadar alat `scanning` biasa, melainkan salah satu tool utama di dunia keamanan siber yang wajib dikuasai oleh siapa pun yang ingin menjadi `penetration tester`, `system administrator`, maupun `network engineer`.
 
 Dari materi yang telah dibahas, kamu telah mempelajari:
-- Cara kerja dasar dan lanjutan Nmap
-- Teknik scanning efektif dan stealth
-- Penggunaan NSE (Nmap Scripting Engine)
-- Integrasi dengan tools pentest lain (Metasploit, Nikto, Dirb)
-- Analisis output serta teknik otomatisasi
-- Studi kasus nyata penggunaan Nmap di berbagai skenario
+- Apa Itu `Nmap`?
+- Sejarah `Nmap`
+- Kegunaan dan Fungsi `Nmap` dalam `Penetration Testing`
+- Instalasi `Nmap`
+- Struktur Perintah `Nmap`
+- Teknik-Teknik Scan di `Nmap`
+- Scan `Port` dan `Host` Lebih Lanjut
+- `Nmap Scripting Engine` (`NSE`)
+- `Output` dan `Reporting` `Nmap`
+- Integrasi `Nmap` dengan `Tools Penetration Testing` Lain
+- Kasus Praktis Penggunaan `Nmap`
+- Tips dan Trik Menggunakan `Nmap` Efektif
+
 
 Dengan menguasai teknik-teknik ini, kamu bisa melakukan `pemetaan jaringan`, `deteksi kerentanan`, serta `mendukung tahapan awal proses pentesting` dengan lebih sistematis dan efisien.
 
