@@ -77,7 +77,7 @@
 | `Windows` | Installer `.exe` | `GUI Zenmap` juga terinstal otomatis |
 | `macOS` | `brew` | Mudah diupdate melalui `Homebrew` |
 
-## E. Tips
+## Tips
 
 Untuk update ke versi terbaru secara manual, kamu bisa `meng-compile` dari `source code`:
 
