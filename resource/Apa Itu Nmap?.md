@@ -1,59 +1,75 @@
 # Apa Itu Nmap?
 
-## A. Pengertian Nmap
+## A. Definisi Singkat
 
-[Nmap (Network Mapper)](https://nmap.org/) adalah sebuah tool open-source yang digunakan untuk melakukan pemindaian jaringan (network scanning) dan audit keamanan (security auditing). Nmap dirancang untuk mendeteksi host aktif, mengidentifikasi layanan yang berjalan pada port tertentu, mengenali sistem operasi yang digunakan oleh target, dan mengumpulkan berbagai informasi lain yang berguna dalam proses penetration testing, inventarisasi jaringan, atau manajemen keamanan jaringan.
+[Nmap (Network Mapper)](https://nmap.org/) adalah tool open-source yang digunakan untuk memetakan jaringan dan melakukan pemindaian terhadap host dan port yang tersedia. Tujuan utamanya adalah untuk membantu administrator sistem, peneliti keamanan, dan penetration tester dalam mendapatkan informasi detail mengenai struktur jaringan dan potensi celah keamanan.
 
-`Nmap` memiliki antarmuka berbasis `command-line`, tetapi juga tersedia dalam versi `GUI` bernama `Zenmap` untuk mempermudah pengguna yang lebih nyaman menggunakan antarmuka grafis.
+Nmap dirancang untuk:
 
-## B. Tujuan dan Fungsi Utama Nmap
+- Menemukan host aktif di jaringan.
+- Menentukan port yang terbuka.
+- Mengidentifikasi layanan yang berjalan di port tersebut.
+- Mendeteksi sistem operasi dan versinya.
+- Menjalankan skrip untuk pendeteksian kerentanan.
 
-Berikut adalah beberapa fungsi utama `Nmap`:
-- **Host Discovery**: Menentukan host mana yang aktif (alive) dalam jaringan.
-- **Port Scanning**: Mengidentifikasi port mana yang terbuka dan layanan apa yang berjalan pada port tersebut.
-- **Service Version Detection**: Menemukan versi aplikasi atau layanan yang berjalan di port tertentu.
-- **Operating System Detection**: Mendeteksi sistem operasi dan informasi `TCP/IP stack` target.
-- **Scriptable Interaction**: Dengan fitur `Nmap Scripting Engine (NSE)`, pengguna bisa menjalankan script untuk `deteksi kerentanan`, `brute force`, `malware scanning`, `dll`.
-- **Network Mapping**: Membantu memetakan topologi jaringan.
+## B. Tujuan dan Kegunaan Utama
 
-## C. Kelebihan Nmap
-- `Gratis` dan `open-source`.
-- Mendukung banyak sistem operasi (`Linux`, `Windows`, `macOS`, `BSD`).
-- Sangat fleksibel dengan banyak opsi dan teknik scanning.
-- Komunitas yang besar dan dokumentasi lengkap.
-- Dapat digunakan untuk jaringan kecil maupun besar.
+| Fungsi Utama Nmap | Deskripsi Singkat | 
+|:--:|:--:|
+| Host Discovery | Menemukan perangkat aktif di jaringan. |
+| Port Scanning	| Mengetahui port mana yang `terbuka/tutup/terfilter`. | 
+| Service Detection	| Mengidentifikasi layanan dan versinya. | 
+| OS Detection | Menebak sistem operasi target. |
+| Scripting Engine (NSE) | Menjalankan skrip khusus untuk deteksi dan eksploitasi. |
 
-## D. Arsitektur Kerja Nmap (Sederhana)
-- **Targeting**: Pengguna menentukan target `IP` atau `range IP`.
-- **Scanning**: Nmap memindai host menggunakan berbagai teknik (`ping scan`, `TCP scan`, `UDP scan`).
-- **Analysis**: Nmap menganalisis respon dan mencocokkannya dengan database layanan.
-- **Output**: Hasil scanning ditampilkan dalam format yang bisa dibaca manusia atau disimpan dalam file `XML/HTML`.
+## C. Apa yang Membuat Nmap Istimewa?
 
-## E. Contoh Kasus Penggunaan
-- Seorang `administrator jaringan` ingin mengetahui port terbuka pada server internal.
-- Seorang `penetration tester` ingin menemukan celah keamanan dalam layanan yang berjalan di jaringan target.
-- Seorang `auditor` keamanan ingin memeriksa apakah sistem sesuai dengan kebijakan firewall.
+Berikut beberapa keunggulan Nmap dibanding tool lain:
 
-## F. Contoh Perintah Nmap Sederhana
+| Keunggulan | Penjelasan |
+|:--:|:--:|
+| Gratis & Open-source | Bisa digunakan dan dimodifikasi tanpa biaya. |
+| Cepat dan Efisien | Memindai ribuan host dalam waktu singkat. |
+| Cerdas | Mendeteksi `firewall`, `OS`, dan `layanan tersembunyi`. |
+| Fleksibel | Bisa digunakan di `Windows`, `Linux`, `macOS`. |
+| Scripting (NSE) | Fitur powerful untuk automatisasi dan eksploitasi. |
+
+## D. Contoh Penggunaan Nmap
 
 ```
 nmap 192.168.1.1
 ```
 
-Perintah di atas akan memindai host `192.168.1.1` dan menampilkan port terbuka beserta layanan yang terdeteksi.
+Memindai host dengan alamat IP `192.168.1.1` dan menampilkan port terbuka.
 
-## G. Siapa yang Menggunakan Nmap?
-- Ethical Hacker & Penetration Tester
-- Network Security Engineer
-- Sysadmin
-- Auditor Keamanan
-- Peneliti Keamanan
+```
+nmap -sV -O 192.168.1.1
+```
+
+Scan lanjutan: deteksi versi layanan dan sistem operasi.
+
+## E. Sejarah Singkat Nmap
+
+- **Dibuat oleh**: [Gordon Lyon (Fyodor)](https://en.wikipedia.org/wiki/Gordon_Lyon)
+- **Rilis pertama**: `1997`
+- **Bahasa pemrograman**: `C`, `Lua`, `Python`
+- **Lisensi**: `GPL` (GNU General Public License)
+- **Situs resmi**: [https://nmap.org](https://nmap.org)
+
+Sejak perilisannya, Nmap terus berkembang dan menjadi standar de facto dalam dunia network scanning dan ethical hacking.
+
+## F. Apakah Nmap Legal?
+
+Nmap legal digunakan untuk:
+
+- Audit jaringan sendiri
+- Pembelajaran dan riset
+- Pengujian keamanan dengan izin
+
+Namun, penggunaan tanpa izin untuk menyusup ke jaringan orang lain bisa melanggar hukum. Selalu gunakan Nmap secara etis dan legal.
 
 ## Kesimpulan
 
-Nmap adalah tools yang sangat penting dan wajib dikuasai oleh siapa saja yang berkecimpung di bidang:
-- Keamanan jaringan
-- Administrasi sistem
-- Penetration testing
+Nmap adalah tool yang sangat penting dalam dunia keamanan jaringan. Dengan fitur-fitur canggih seperti `port scanning`, `OS detection`, dan `scripting engine`, Nmap memberikan kemampuan luar biasa bagi siapa saja yang ingin memahami atau mengamankan infrastruktur jaringan.
 
-Kekuatan dan fleksibilitasnya menjadikan Nmap sebagai tools standar de facto dalam industri keamanan siber.
+> Di bab berikutnya, kita akan menyelami sejarah Nmap: bagaimana tool ini bermula dan berkembang menjadi alat yang tak tergantikan dalam toolkit ethical hacker modern.
