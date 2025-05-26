@@ -24,7 +24,7 @@ Nmap (Network Mapper) adalah alat pemindai jaringan yang sangat populer dan serb
 - Penetration tester untuk persiapan eksploitasi.
 - Peneliti keamanan untuk eksplorasi infrastruktur.
 
-Nmap tidak hanya mampu melakukan scanning IP dan port, tapi juga mendeteksi sistem operasi, fingerprint layanan, bahkan menjalankan script otomatis untuk deteksi kerentanan melalui fitur `Nmap Scripting Engine (NSE)`.
+Nmap tidak hanya mampu melakukan scanning IP dan port, tapi juga mendeteksi sistem operasi, fingerprint layanan, bahkan menjalankan skrip otomatis untuk deteksi kerentanan melalui fitur `Nmap Scripting Engine (NSE)`.
 
 ## D. Tujuan Panduan Ini
 
