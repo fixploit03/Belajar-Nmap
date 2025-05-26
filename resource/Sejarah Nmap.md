@@ -2,65 +2,76 @@
 
 ## A. Awal Mula Nmap
 
-`Nmap` pertama kali diperkenalkan pada tahun `1997` oleh [Gordon Lyon](https://en.wikipedia.org/wiki/Gordon_Lyon), yang juga dikenal dengan nama alias `Fyodor`. Tools ini diperkenalkan dalam sebuah artikel yang dipublikasikan di majalah [Phrack](https://phrack.org/), sebuah `e-zine` legendaris di kalangan komunitas hacking. Artikel tersebut langsung menarik perhatian karena `Nmap` menawarkan metode scanning yang efisien dan fleksibel, berbeda dari tools yang ada saat itu.
+Nmap (Network Mapper) pertama kali dirilis oleh [Gordon Lyon](https://en.wikipedia.org/wiki/Gordon_Lyon), yang juga dikenal dengan nama aliasnya `Fyodor`, pada September `1997`. Tool ini diperkenalkan melalui artikel berjudul `The Art of Port Scanning` di majalah keamanan ternama [Phrack Magazine](https://phrack.org/issues/51/11), edisi ke-`51`.
 
-**Artikel asli:**
-    
-> [The Art of Port Scanning - Phrack Magazine Volume 7, Issue 51, 1997](https://phrack.org/issues/51/11)
-> 
-> **Penulis:** Fyodor (Gordon Lyon)
+Pada saat itu, dunia keamanan jaringan masih belum memiliki banyak alat scanning jaringan yang fleksibel dan efisien. `Fyodor` menciptakan Nmap sebagai solusi open-source yang dapat melakukan pemindaian jaringan cepat dan akurat, terutama untuk mendukung aktivitas pengujian keamanan jaringan.
 
+## B. Filosofi dan Visi Awal
 
-## B. Tujuan Awal Pengembangan
+`Fyodor` merancang Nmap dengan prinsip:
 
-Saat itu, belum banyak tools yang bisa digunakan untuk melakukan pemindaian jaringan secara presisi dan cepat. `Fyodor` merancang `Nmap` untuk memenuhi kebutuhan para `administrator jaringan` dan `security researcher` dalam:
-- Mendeteksi host yang aktif
-- Menemukan port terbuka
-- Mengidentifikasi layanan dan sistem operasi target
+- Cepat, efisien, dan ringan
+- Sederhana namun sangat kuat
+- Gratis dan open-source untuk komunitas
 
-## C. Perkembangan Fitur Nmap
+Sejak awal, Nmap ditujukan tidak hanya untuk pakar keamanan, tetapi juga admin jaringan dan pengguna teknis umum yang ingin mengaudit sistem mereka.
 
-Sejak versi pertamanya, `Nmap` terus berkembang dan kini telah memiliki fitur yang jauh lebih kompleks dan canggih. Berikut adalah tonggak penting dalam perkembangan `Nmap`:
+## C. Perjalanan Versi dan Fitur Penting
 
-| Tahun | Peristiwa |
+| Tahun	| Perkembangan |
 |:--:|:--:|
-| `1997`	| `Nmap` versi awal dirilis di `Phrack`. |
-| `2000`	| Ditambahkan fitur `OS detection` berbasis `fingerprinting`. |
-| `2003`	| Mulai digunakan secara luas oleh komunitas keamanan siber. |
-| `2006`	| Dirilisnya `Nmap Scripting Engine (NSE)` yang memungkinkan eksekusi script otomatis. |
-| `2007`	| Munculnya `Zenmap`, `GUI` resmi untuk `Nmap`. |
-| `2010-an`	| Penambahan banyak script `NSE` untuk berbagai `exploit` dan `audit`. |
-| `2020-sekarang`	| Terus diperbarui dengan dukungan teknologi terbaru dan kompatibilitas `OS` yang lebih baik. |
+| `1997` | Nmap versi awal dirilis (`v1.00`) melalui `Phrack`. Hanya mendukung scanning `TCP` dan `ICMP` sederhana. |
+| `1999–2001` | Penambahan fitur seperti `OS detection`, `output ke file`, dan `fingerprinting awal layanan`. |
+| `2005` | Rilis `NmapFE (Nmap Front-End)`, `GUI` awal berbasis `GTK`. |
+| `2006` | Diperkenalkan `Nmap Scripting Engine (NSE)` yang revolusioner. |
+| `2009` | Rilis `Zenmap`, antarmuka `GUI` modern pengganti `NmapFE`. |
+| `2010+` | Integrasi penuh `NSE`, peningkatan performa scanning, dan deteksi firewall. |
+| `2020+` | Dukungan update rutin, penambahan lebih dari `600+` skrip `NSE`, dan integrasi dengan platform keamanan lain. |
 
-## D. Dukungan Komunitas
+## D. Nmap dalam Dunia Nyata
 
-Salah satu kekuatan terbesar `Nmap` adalah dukungan komunitasnya yang aktif. Banyak kontributor dari seluruh dunia membantu:
-- Mengembangkan dan menguji fitur baru
-- Menulis script `NSE`
-- Melaporkan dan memperbaiki bug
-- Memberikan ide-ide pengembangan lanjutan
+Seiring waktu, Nmap semakin populer dan digunakan secara luas dalam berbagai bidang:
 
-`Nmap` juga sering digunakan dalam ajang `Capture The Flag (CTF)`, `kompetisi hacking`, dan `pelatihan cybersecurity` karena kestabilan dan kekayaannya akan fitur.
+- Keamanan jaringan (penetration testing, audit sistem)
+- Administrasi sistem (monitoring dan troubleshooting)
+- Pendidikan dan pelatihan (materi praktikum keamanan siber)
+- Riset keamanan (analisis kerentanan dan layanan)
 
-## E. Pengakuan Dunia
+Nmap juga menjadi bagian penting dalam berbagai distribusi keamanan seperti:
 
-`Nmap` telah digunakan oleh berbagai organisasi besar termasuk:
-- Perusahaan teknologi (`Google`, `Microsoft`)
-- Lembaga pemerintah (`NSA`, `FBI`)
-- Institusi pendidikan
-- Peneliti keamanan independen
+- Kali Linux
+- Parrot OS
+- BackTrack (pendahulu Kali)
 
-Selain itu, `Nmap` juga beberapa kali muncul dalam film populer, seperti:
-- [The Matrix Reloaded (2003)](https://en.wikipedia.org/wiki/The_Matrix_Reloaded)
-- [Die Hard 4: Live Free or Die Hard (2007)](https://en.wikipedia.org/wiki/Live_Free_or_Die_Hard)
-- [Girl with the Dragon Tattoo (2011)](https://en.wikipedia.org/wiki/The_Girl_with_the_Dragon_Tattoo_(2011_film))
+## E. Nmap di Budaya Populer
 
-Ini menunjukkan bagaimana `Nmap` telah menjadi ikon dalam dunia `hacking` dan `cybersecurity`.
+Nmap bahkan muncul dalam berbagai film dan serial seperti:
 
-## F. Posisi Saat Ini
+- [The Matrix Reloaded](https://en.wikipedia.org/wiki/The_Matrix_Reloaded) ([Trinity](https://en.wikipedia.org/wiki/Trinity_(The_Matrix)) menggunakan Nmap untuk hack)
+- [Mr. Robot](https://mrrobot.fandom.com/wiki/Mr._Robot) (terlihat di beberapa adegan hacking)
 
-Hingga hari ini, `Nmap` tetap menjadi tools `port scanner` dan `host discovery` paling populer dan digunakan secara luas. Dengan perkembangan internet dan kebutuhan akan keamanan yang semakin tinggi, `Nmap` terus relevan dan dipertahankan oleh tim pengembang serta komunitas `open-source`.
+Ini memperkuat citra Nmap sebagai tool andalan dalam dunia cybersecurity, baik nyata maupun fiksi.
+
+## F. Komunitas dan Kontribusi
+
+Nmap berkembang berkat:
+
+- Komunitas open-source yang aktif.
+- Kontribusi dari ribuan pengguna dalam bentuk bug report, patch, dan skrip NSE.
+- Dukungan dari organisasi keamanan dan perusahaan teknologi besar.
+
+Situs resminya (nmap.org) menyediakan:
+
+- Dokumentasi lengkap
+- Repositori skrip NSE
+- Forum diskusi dan mailing list
 
 ## Kesimpulan
 
-Sejak awal kemunculannya di tahun `1997`, `Nmap` telah menjelma dari tools sederhana menjadi salah satu senjata utama dalam dunia keamanan jaringan. Komitmen `Fyodor` dan dukungan komunitas menjadikan `Nmap` sebagai tools standar industri yang terus berkembang dan tetap relevan hingga sekarang.
+Sejak diperkenalkan pada tahun `1997`, Nmap telah tumbuh dari alat sederhana menjadi tool `network reconnaissance` paling populer dan powerful di dunia. Dengan komunitas besar, pembaruan rutin, dan fleksibilitas luar biasa, Nmap tetap menjadi senjata utama para ethical hacker dan administrator jaringan hingga hari ini.
+
+> Di bab selanjutnya, kita akan membahas bagaimana fungsi dan peran Nmap dalam penetration testing, serta bagaimana ia digunakan untuk menemukan celah keamanan secara proaktif.
+
+Siap lanjut ke: Kegunaan dan Fungsi Nmap dalam Penetration Testing?
+
+[Kegunaan dan Fungsi Nmap dalam Penetration Testing](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Kegunaan%20dan%20Fungsi%20Nmap%20dalam%20Penetration%20Testing.md)
