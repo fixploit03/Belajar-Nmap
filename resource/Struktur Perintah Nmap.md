@@ -1,120 +1,142 @@
 # Struktur Perintah Nmap
 
-## A. Struktur Perintah Nmap
+## Pendahuluan
 
-Sebelum mulai `scanning`, penting untuk memahami struktur dasar perintah `Nmap`:
+`Nmap` menggunakan struktur perintah berbasis `command line (CLI)` yang sangat fleksibel dan modular. Dengan memahami struktur dasarnya, kamu dapat menyusun perintah `Nmap` sesuai kebutuhan: mulai dari scanning sederhana hingga kompleks, termasuk `deteksi OS`, `deteksi layanan`, `scripting`, dan `lain-lain`.
+
+## A. Struktur Umum Perintah Nmap
 
 ```
 nmap [opsi] [target]
 ```
 
-**Penjelasan:**
-
-| Komponen | Keterangan|
-|:--:|:--:|
-| `nmap`	| Nama program |
-| `[opsi]` | Metode `scan`, `teknik`, `script`, `dll` |
-| `[target]` | `IP address`, `hostname`, atau `rentang IP` |
-
-**Contoh Sederhana:**
+Contoh sederhana:
 
 ```
 nmap 192.168.1.1
 ```
 
-Melakukan pemindaian port dasar ke IP `192.168.1.1`.
-
-## B. Scanning Host dan Port Dasar
-
-Berikut adalah beberapa perintah dasar yang wajib diketahui oleh pemula:
-
-**1. Ping Scan (Host Discovery)**  
-  
-   Menemukan host aktif dalam jaringan tanpa memindai port.
-  
-   ```
-   nmap -sn 192.168.1.0/24
-   ```
-  
-   Memindai seluruh jaringan `/24` untuk mencari perangkat yang hidup.
-
-**2. Port Scan Dasar (TCP SYN Scan)**  
-  
-   Melakukan pemindaian port standar (`TCP`).
-
-   ```
-   nmap -sS 192.168.1.1
-   ```
-  
-   Scan cepat dan `stealthy` (tidak membuat koneksi penuh).
-
-**3. Scan Beberapa Target Sekaligus**  
-
-   ```
-   nmap 192.168.1.1 192.168.1.2
-   ```
-  
-   Scan dua IP berbeda dalam satu perintah.
-
-**4. Scan Rentang IP**  
-  
-   ```
-   nmap 192.168.1.1-50
-   ```
-  
-   Scan IP dari `192.168.1.1` sampai `192.168.1.50`.
-
-**5. Scan Nama Domain**  
-
-   ```
-   nmap scanme.nmap.org
-   ```
-  
-   Scan terhadap domain alih-alih alamat IP.
-
-## C. Memahami Output Hasil Scan
-
-Saat menjalankan `Nmap`, hasilnya akan menampilkan informasi seperti:
+Contoh lebih kompleks:
 
 ```
-Starting Nmap 7.95 ( https://nmap.org ) at 2025-05-21 10:48 WIB
-Nmap scan report for 192.168.1.11
-Host is up (0.000010s latency).
-Not shown: 998 closed tcp ports (reset)
-PORT     STATE SERVICE
-22/tcp   open  ssh
-80/tcp   open  http
-443/tcp  open  https
+sudo nmap -sS -sV -O -T4 -p 1-1000 192.168.1.1
 ```
 
-**Penjelasan:**
+## B. Komponen Penting dalam Struktur Perintah Nmap
 
-| Bagian Output	| Keterangan |
-|:--:|:--:|
-| `Nmap scan report for` | Menunjukkan `IP` atau `hostname` yang discan |
-| `Host is up` | Target hidup dan merespons |
-| `Not shown:` | Banyak port yang tidak terbuka (disembunyikan dari tampilan) |
-| `PORT` | Nomor port yang terdeteksi |
-| `STATE` | Status port (`open`, `closed`, atau `filtered`) |
-| `SERVICE` | Nama layanan yang umum berjalan di port tersebut |
+**1. Target**
 
-**Contoh Status Port:**
+Bisa berupa `IP tunggal`, `range`, `subnet`, `nama domain`.
 
-| Status | Keterangan |
-|:--:|:--:|
-| `open` | Port terbuka dan menerima koneksi |
-| `closed` | Port tertutup, tapi host merespons |
-| `filtered` | Tidak ada respons. Mungkin diblokir `firewall` |
+**Contoh:**
+- `192.168.1.1`
+- `192.168.1.1-10`
+- `192.168.1.0/24`
+- `example.com`
 
-## Tips Dasar untuk Pemula
-- Gunakan opsi `-v` untuk output lebih rinci (`verbose`).
+**2. Opsi Scan (Scan Type)**
+
+Menentukan teknik scanning yang digunakan:
+    
+| Opsi | Nama | Keterangan |
+:--:|:--:|:--:|
+| `-sS`	| TCP SYN scan | `Stealth scan` (default, cepat) |
+| `-sT`	| TCP connect scan | `Full TCP connect` |
+| `-sU`	| UDP scan | Scan port `UDP` |
+| `-sA`	| ACK scan | Untuk bypass `firewall` |
+| `-sN`	| Null scan | Tanpa flag `TCP` |
+
+**3. Opsi Deteksi dan Identifikasi**
+- `-sV`: Deteksi versi layanan
+- `-O`: Deteksi sistem operasi (`OS`)
+- `-A`: Deteksi agresif (`OS`, `version`, `script`, `traceroute`)
+
+**4. Opsi Port**
+- `-p`: untuk menentukan port
+  - `-p 80`: scan port `80` saja
+  - `-p 1-1000`: scan port `1` sampai `1000`
+  - `-p-`: scan semua `65535` port
+
+**5. Timing dan Performa**
+- `-T0` sampai `-T5`
+
+  | Opsi | Mode | Kecepatan | Risiko Terdeteksi | Deskripsi | 
+  |:--:|:--:|:--:|:--:|:--:|
+  | `-T0` | Paranoid | Sangat lambat | Sangat stealth | Delay `5 menit` antar `probe`, cocok untuk menghindari `IDS` |
+  | `-T1` | Sneaky | Lambat | Stealth tinggi | Delay `15 detik` antar `probe`, untuk jaringan yang dimonitor ketat |
+  | `-T2` | Polite | Lambat | Stealth sedang | Delay `beberapa detik`, mengurangi beban `bandwidth` |
+  | `-T3` | Normal | Sedang | Sedang| Mode default, keseimbangan `kecepatan` dan `stealth` |
+  | `-T4` | Aggressive | Cepat | Mudah terdeteksi | Timeout lebih pendek, paralel lebih tinggi | 
+  | `-T5` | Insane | Sangat cepat | Sangat mudah terdeteksi | Sangat agresif, mungkin tidak akurat pada jaringan lambat |
+
+**6. Penggunaan Script (NSE)**
+- `--script=<nama>`: Menjalankan script `NSE` tertentu.
+
+  Contoh:
 
   ```
-  nmap -v 192.168.1.1
+  sudo nmap --script=http-title 192.168.1.1
   ```
 
-- Gunakan `-Pn` jika target tidak merespons ping (`ICMP diblokir`).
+- `--script=default`: Menjalankan script default `Nmap`.
+- `--script-help=<nama>`: Tampilkan dokumentasi script.
 
-  ```
-  nmap -Pn 192.168.1.1
-  ```
+**7. Output**
+- `-oN <file>`: Output dalam format normal.
+- `-oX <file>`: Output dalam format `XML`.
+- `-oG <file>`: Output `grepable`.
+- `-oA <basename>`: Semua format di atas sekaligus.
+
+**8. Lain-lain**
+- `-Pn`: Skip `host discovery` (anggap semua host hidup).
+- `-v`, `-vv`, `-vvv`: Verbose level (informasi lebih detail).
+- `--open`: Tampilkan hanya port yang terbuka.
+
+## C. Contoh Struktur Perintah Kombinasi
+
+1. Scan cepat port umum:
+
+   ```
+   nmap -F target.com
+   ```
+
+2. Scan intensif dengan `OS detection`:
+
+   ```
+   sudo nmap -sS -sV -O -T4 -p- target.com
+   ```
+
+3. Gunakan script untuk deteksi kerentanan:
+
+   ```
+   sudo nmap -sV --script=vuln 192.168.1.1
+   ```
+
+4. Simpan hasil scan ke file:
+
+   ```
+   nmap -sS -T4 -oA hasil-scan 10.10.10.1
+   ```
+
+## D. Tips dalam Menyusun Struktur Perintah
+- Gunakan `-T3` atau `-T4` untuk `balancing` antara `stealth` dan `kecepatan`.
+- Gunakan `--top-ports <jumlah>` untuk scan port terbuka yang paling umum.
+- Jika butuh bypass firewall, kombinasi `-sS`, `-sA`, atau `-sN` bisa dicoba.
+- Untuk jaringan besar, gunakan subnet `CIDR (192.168.1.0/24)`.
+- Gabungkan dengan script `NSE` untuk hasil lebih mendalam.
+
+## E. Latihan
+
+Coba analisis dan jelaskan fungsi dari perintah berikut:
+
+```
+sudo nmap -sS -sV -p 22,80,443 --script=http-enum -oN webscan.txt example.com
+```
+
+**Jawaban:**
+
+Lakukan `SYN scan (-sS)`, `deteksi versi (-sV)` pada port `22`, `80`, `443`, menggunakan script `http-enum`, dan simpan hasilnya dalam file teks `webscan.txt`.
+
+## Kesimpulan
+
+Struktur perintah `Nmap` sangat fleksibel dan bisa dikustomisasi sesuai kebutuhan. Dengan memahami struktur ini, kamu akan mampu membangun perintah `Nmap` yang `kuat`, `efisien`, dan `sesuai dengan tujuan penetration testing`.
