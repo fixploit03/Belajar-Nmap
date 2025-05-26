@@ -1,158 +1,142 @@
 # Struktur Folder dan File Penting di Nmap
 
-`Nmap` (`Network Mapper`) adalah alat `open-source` untuk `pemindaian jaringan` dan `analisis keamanan`. Struktur folder dan file penting di `Nmap` bervariasi tergantung pada sistem operasi (`Linux`, `Windows`, `macOS`). Berikut adalah penjelasan tentang `lokasi file`, `fungsi`, dan `perbedaan antar platform`.
+## A. Pengantar
 
-## A. Ikhtisar Umum
+`Nmap` bukan hanya sebuah `executable nmap`, tetapi juga dilengkapi dengan banyak file pendukung seperti `skrip`, `database port`, dan `pustaka internal` yang memperkaya fungsinya. Memahami struktur folder dan file penting di `Nmap` akan membantu dalam:
+- Modifikasi skrip `Nmap Scripting Engine (NSE)`
+- Debugging hasil scan
+- Pembuatan modul kustom
 
-`Nmap` menyimpan berbagai `file konfigurasi`, `script`, dan `database` yang digunakan untuk pemindaian jaringan. File-file ini mencakup:
-- `nmap executable`: File `biner` utama untuk menjalankan `Nmap`.
-- `nmap-services`: Daftar port dan layanan yang dikenal.
-- `nmap-os-db`: Database untuk deteksi sistem operasi.
-- `nmap-payloads`: Payload untuk pengujian protokol.
-- `nmap-protocols`: Daftar protokol jaringan.
-- `nmap-rpc`: Daftar nomor `RPC`.
-- `nmap-mac-prefixes`: Daftar prefiks `MAC` untuk vendor perangkat.
-- `NSE Scripts`: Script untuk `Nmap Scripting Engine` (`NSE`).
-- `nse_main.lua`: File utama untuk menjalankan `NSE`.
+## B. Lokasi Instalasi Default (Per OS)
 
-Lokasi file-file ini tergantung pada sistem operasi dan metode instalasi (misalnya, melalui `package manager`, `kompilasi dari source`, atau `installer resmi`).
+| Sistem Operasi	| Lokasi Umum Instalasi |
+|:--:|:--:|
+| `Linux (APT/DNF)`	| `/usr/bin/nmap`, `/usr/share/nmap` |
+| `Windows`	| `C:\Program Files (x86)\Nmap\` |
+| `macOS (Homebrew)`	| `/opt/homebrew/bin/nmap` dan `/opt/homebrew/share/nmap` |
 
-## B. Struktur Folder di Linux
+Gunakan perintah `which nmap` atau `where nmap` untuk menemukan lokasi binari `Nmap`.
 
-Di `Linux`, `Nmap` biasanya diinstal melalui `package manager` (seperti `apt`, `yum`, atau `dnf`) atau dikompilasi dari `source`. Lokasi file bergantung pada metode instalasi.
-
-**Lokasi Default**
-
-Instalasi via `Package Manager` (misalnya, `sudo apt install nmap`):
-
-- **Executable**: `/usr/bin/nmap` atau `/usr/local/bin/nmap`
-- **File `Konfigurasi` dan `Database`**:
-  - `/usr/share/nmap/` atau `/usr/local/share/nmap/`
-  - **File penting:**
-    - `nmap-services`
-    - `nmap-os-db`
-    - `nmap-payloads`
-    - `nmap-protocols`
-    - `nmap-rpc`
-    - `nmap-mac-prefixes`
-- **NSE Scripts**: `/usr/share/nmap/scripts/` atau `/usr/local/share/nmap/scripts/`
-- `nse_main.lua:` `/usr/share/nmap/nselib/`
-- **File Konfigurasi Pengguna (opsional)**: `~/.nmap/` (dibuat jika pengguna menjalankan `Nmap` dengan opsi tertentu).
-
-**Instalasi dari Source:**
-- Jika dikompilasi dari `source`, file biasanya berada di `/usr/local/` kecuali dikonfigurasi lain saat kompilasi (`./configure --prefix=`).
-- **Contoh**: `/usr/local/bin/nmap`, `/usr/local/share/nmap/`.
-
-**Catatan**
-- File di `/usr/share/nmap/` bersifat `read-only` untuk pengguna biasa. Untuk memodifikasi, gunakan hak akses `root` (`sudo`).
-- Pengguna dapat membuat file konfigurasi khusus di `~/.nmap/` untuk menyimpan pengaturan atau script tambahan.
-
-## C. Struktur Folder di Windows
-
-Di `Windows`, `Nmap` diinstal melalui installer resmi dari situs `Nmap` (`nmap.org`). Installer menempatkan semua file di direktori tertentu.
-
-**Lokasi Default**
-
-- **Instalasi Default:**
-  - **Executable**: `C:\Program Files (x86)\Nmap\nmap.exe` (untuk sistem `64-bit`) atau `C:\Program Files\Nmap\nmap.exe` (untuk sistem `32-bit`).
-  - **File Konfigurasi dan Database**:
-    - `C:\Program Files (x86)\Nmap\`
-    - **File penting**:
-      - `nmap-services`
-      - `nmap-os-db`
-      - `nmap-payloads`
-      - `nmap-protocols`
-      - `nmap-rpc`
-      - `nmap-mac-prefixes`
-- **NSE Scripts**: `C:\Program Files (x86)\Nmap\scripts\`
-- `nse_main.lua`: `C:\Program Files (x86)\Nmap\nselib\`
-- **File Konfigurasi Pengguna (opsional)**: `%APPDATA%\nmap\` (misalnya, `C:\Users\<Username>\AppData\Roaming\nmap\`).
-
-**Catatan**
-- Untuk menjalankan `Nmap` di `Windows`, pastikan Anda membuka `Command Prompt` atau `PowerShell` sebagai `Administrator` untuk fitur tertentu (misalnya, `pemindaian raw packet`).
-- File seperti `nmap.exe` dapat dipindahkan ke direktori lain untuk portabilitas, tetapi pastikan semua file pendukung (seperti `nmap-services` dan `script NSE`) ikut dipindahkan.
-- `Windows` tidak mendukung beberapa fitur `Nmap` (misalnya, beberapa jenis pemindaian `raw`) tanpa driver seperti `Npcap`.
-
-# D. Struktur Folder di macOS
-
-Di `macOS`, `Nmap` biasanya diinstal melalui `package manager` seperti `Homebrew` (`brew install nmap`) atau dengan mengunduh `binary` dari situs resmi `Nmap`.
-
-**Lokasi Default**
-
-- **Instalasi via Homebrew:**
-  - **Executable**: `/usr/local/bin/nmap` atau `/opt/homebrew/bin/nmap` (tergantung versi `Homebrew` dan `arsitektur Mac`, seperti `Intel` atau `Apple Silicon`).
-  - **File Konfigurasi dan Database**:
-    - `/usr/local/share/nmap/` atau `/opt/homebrew/share/nmap/`
-    - **File penting**:
-      - `nmap-services`
-      - `nmap-os-db`
-      - `nmap-payloads`
-      - `nmap-protocols`
-      - `nmap-rpc`
-      - `nmap-mac-prefixes`
-  - **NSE Scripts**: `/usr/local/share/nmap/scripts/` atau `/opt/homebrew/share/nmap/scripts/`
-  - `nse_main.lua`: `/usr/local/share/nmap/nselib/` atau `/opt/homebrew/share/nmap/nselib/`
-  - **File Konfigurasi Pengguna (opsional)**: `~/.nmap/`.
-- **Instalasi dari Binary Resmi**:
-  - Jika diinstal dari `binary`, file biasanya ditempatkan di `/usr/local/bin/` dan `/usr/local/share/nmap/`.
-  - Struktur mirip dengan instalasi `Homebrew`.
-
-**Catatan**
-- `Homebrew` adalah metode paling umum untuk menginstal `Nmap` di `macOS`. Pastikan `Homebrew` diperbarui (`brew update`) sebelum instalasi.
-- Untuk fitur pemindaian `raw`, `macOS` memerlukan izin `root` (`sudo`) karena pembatasan keamanan sistem.
-
-# E. Fungsi File Penting
-
-Berikut adalah fungsi utama dari file-file penting di `Nmap`:
-
-- `nmap-services`: Berisi daftar port `TCP/UDP` dan layanan terkait (misalnya, port `80` untuk `HTTP`). Digunakan untuk mengidentifikasi layanan saat pemindaian.
-- `nmap-os-db`: Database sidik jari (`fingerprint`) sistem operasi untuk mendeteksi `OS` dan `versi perangkat`.
-- `nmap-payloads`: Berisi payload untuk menguji respons protokol tertentu.
-- `nmap-protocols`: Daftar nomor protokol `IP` (misalnya, `TCP`, `UDP`, `ICMP`).
-- `nmap-rpc`: Daftar nomor `RPC` untuk mengidentifikasi layanan `RPC`.
-- `nmap-mac-prefixes`: Daftar prefiks `MAC address` untuk mengidentifikasi `vendor perangkat`.
-- `NSE Scripts`: Script `Lua` untuk memperluas fungsi `Nmap`, seperti deteksi `kerentanan` atau `enumerasi layanan`.
-- `nse_main.lua`: File inti untuk menjalankan `Nmap Scripting Engine`.
-
-## F. Perbedaan Antar Platform
-
-| Aspek | Linux | Windows | macOS |
-|:--:|:--:|:--:|:--:|
-| **Lokasi Executable** | `/usr/bin/nmap` atau `/usr/local/bin/nmap` | `C:\Program Files (x86)\Nmap\nmap.exe` | `/usr/local/bin/nmap` atau `/opt/homebrew/bin/nmap` |
-| **Lokasi File Database** | `/usr/share/nmap/` atau `/usr/local/share/nmap/` | `C:\Program Files (x86)\Nmap\` | `/usr/local/share/nmap/` atau `/opt/homebrew/share/nmap/` |
-| **File Konfigurasi Pengguna** | `~/.nmap/` | `%APPDATA%\nmap\` | `~/.nmap/` |
-| **Metode Instalasi** | `Package manager`, `source` | `Installer resmi` | `Homebrew`, `binary resmi` |
-| **Izin Root** | Diperlukan untuk fitur `raw packet` | Diperlukan untuk fitur `raw packet` (dengan `Npcap`) | Diperlukan untuk fitur `raw packet` |
-| **Driver Tambahan** | Tidak diperlukan | `Npcap` untuk pemindaian `raw` | Tidak diperlukan |
-
-## G. Tips Pengelolaan File
-- **Memperbarui Database**: Jalankan `nmap --script-updatedb` untuk memperbarui `script NSE` dan `nmap --versiondb-update` (jika tersedia) untuk memperbarui database seperti `nmap-services` dan `nmap-os-db`.
-- **Menambahkan Script Kustom**: Tambahkan script Lua kustom ke direktori `scripts/` atau `~/.nmap/scripts/`.
-- **Backup File Konfigurasi**: Jika memodifikasi file seperti `nmap-services`, buat salinan cadangan untuk menghindari kehilangan data.
-- **Portabilitas di Windows**: Untuk penggunaan portabel, salin seluruh folder `Nmap` ke drive eksternal, tetapi pastikan `Npcap` diinstal jika diperlukan.
-
-## H. Contoh Penggunaan
-
-Untuk memverifikasi lokasi file di sistem Anda:
-
-- **Linux/macOS:**
-  
-  ```
-  which nmap
-  ls -l /usr/share/nmap/
-  ```
-
-- **Windows:**
-  
-  ```
-  dir "C:\Program Files (x86)\Nmap\"
-  ```
-
-Untuk menjalankan `Nmap` dengan `script NSE`:
+## C. Struktur Folder Utama (Linux/macOS)
 
 ```
-nmap --script <nama_script> <target>
+/usr/share/nmap/
+│
+├── nmap-services
+├── nmap-protocols
+├── nmap-rpc
+├── nmap-mac-prefixes
+├── nmap-os-db
+├── nmap-payloads
+├── nse_main.lua
+├── scripts/
+│   ├── http-enum.nse
+│   ├── smb-vuln-ms17-010.nse
+│   └── ...
+└── scripts/script.db
 ```
+
+## D. Penjelasan File dan Folder Penting
+
+```
+/usr/bin/nmap
+```
+
+Executable utama `Nmap (CLI)` yang menjalankan semua proses scanning.
+
+```
+/usr/share/nmap/
+```
+
+Berisi semua data dan konfigurasi penting. Berikut penjelasan tiap file:
+
+| File/Folder	|Fungsi|
+|:--:|:--:|
+| `nmap-services` | Daftar port dan protokol standar yang digunakan untuk pemetaan port. |
+| `nmap-protocols` | Daftar protokol `IP` (misalnya `TCP=6`, `UDP=17`) yang dikenali oleh `Nmap`. |
+| `nmap-os-db` | Database `fingerprint OS` untuk fitur `OS detection`. |
+| `nmap-payloads` | Payload default untuk membantu mendeteksi layanan pada port `UDP`. |
+| `nmap-mac-prefixes` | Data vendor `MAC address` untuk identifikasi perangkat berdasarkan `OUI`. |
+| `scripts/` | Folder semua script `NSE` yang digunakan untuk scanning lanjutan. |
+| `scripts/script.db` | Index script yang digunakan `Nmap` untuk menentukan kategori dan dependensi. |
+| `nmap-rpc` | Database `RPC` yang digunakan saat mendeteksi layanan `RPC`. |
+| `nse_main.lua` | Entry point untuk menjalankan `Nmap Scripting Engine`. |
+
+## E. File Penting di Folder `scripts/`
+
+Di sinilah letak kekuatan `Nmap Scripting Engine (NSE)`. File dengan ekstensi `.nse` adalah script `Lua` yang bisa:
+- Melakukan eksploitasi ringan
+- Deteksi `CVE`
+- Brute force login
+- Cek status `SSL`, `DNS`, `HTTP`, `SMB`, `dll`.
+
+**Contoh file populer:**
+
+| Script NSE	|Fungsi|
+|:--:|:--:|
+| `http-enum.nse` | Enum halaman direktori `HTTP`. |
+| `smb-vuln-ms17-010.nse` | Cek kerentanan `EternalBlue (SMB)`. |
+| `ftp-anon.nse` | Cek akses `anonim` pada `FTP server`. |
+| `ssh-brute.nse` | Brute force login `SSH`. |
+
+## F. Menambahkan atau Mengedit Script NSE
+
+Untuk membuat script sendiri atau memodifikasi script yang ada:
+
+1. Simpan script di:
+
+   ```
+   /usr/share/nmap/scripts/
+   ```
+
+2. Jalankan perintah rebuild database:
+
+   ```
+   sudo nmap --script-updatedb
+   ```
+
+3. Jalankan script:
+
+   ```
+   sudo nmap --script=namascript.nse target.com
+   ```
+
+## G. Cek Lokasi Folder via CLI
+
+Untuk melihat lokasi direktori skrip dan konfigurasi secara dinamis:
+
+```
+nmap --script-help
+```
+
+Atau:
+
+```
+locate nmap | grep script
+```
+
+## H. Catatan untuk Pengguna Windows
+
+Pada `Windows`, struktur mirip tetapi semua berada di dalam:
+
+```
+C:\Program Files (x86)\Nmap\
+│
+├── nmap.exe
+├── zenmap.exe
+├── scripts\
+├── nmap-services
+├── ...
+```
+
+Gunakan `PowerShell` atau `CMD` untuk menelusuri isi folder dan mencoba perintah `nmap.exe`.
 
 ## Kesimpulan
-Memahami struktur folder dan file penting di `Nmap` sangat penting untuk `konfigurasi`, `penyesuaian`, dan `pemecahan masalah`. `Linux` dan `macOS` memiliki struktur serupa karena basis `Unix`, sementara `Windows` menggunakan pendekatan berbasis `installer` dengan direktori terpusat. Pastikan untuk memeriksa izin akses dan driver tambahan (seperti `Npcap` di `Windows`) untuk memastikan `Nmap` berfungsi optimal.
+
+Memahami struktur file dan folder `Nmap` memberi kendali lebih terhadap perilaku scanning. Hal ini sangat berguna saat:
+- Membuat atau memodifikasi script `NSE`
+- Melacak hasil `OS fingerprint`
+- Menyesuaikan payload scanning
+- Mengembangkan modul scanning otomatis
+
+Pengetahuan ini menjadi pondasi penting untuk melakukan `advanced penetration testing` menggunakan `Nmap`.
