@@ -92,14 +92,14 @@ Seorang `pentester` diminta mengaudit jaringan perusahaan. Dengan `Nmap`, dia bi
 
 Dalam waktu singkat, `pentester` dapat mengidentifikasi potensi risiko keamanan dan membuat laporan yang akurat.
 
-## F. Kelebihan Nmap dalam Pentesting
+## E. Kelebihan Nmap dalam Pentesting
 - Cepat dan efisien
 - Dapat digunakan secara `stealth` (tidak mudah terdeteksi `IDS`)
 - Mendukung berbagai teknik scanning (`SYN`, `UDP`, `ACK`, `dll`.)
 - Bisa diotomatisasi (misalnya via `Bash` atau `Python`)
 - Didukung oleh database skrip `NSE` yang sangat luas
 
-## G. Kekurangan Nmap (yang Perlu Diwaspadai Pentester)
+## F. Kekurangan Nmap (yang Perlu Diwaspadai Pentester)
 - Bisa terdeteksi oleh `firewall/IDS` jika tidak digunakan secara `stealthy`.
 - Beberapa layanan bisa memblokir koneksi jika mendeteksi scan.
 - Scanning yang terlalu agresif bisa mengganggu sistem target.
