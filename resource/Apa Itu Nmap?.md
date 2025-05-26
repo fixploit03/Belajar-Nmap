@@ -2,18 +2,18 @@
 
 ## A. Pengertian Nmap
 
-**[Nmap (Network Mapper)](https://nmap.org/) adalah sebuah tool open-source yang digunakan untuk melakukan pemindaian jaringan (network scanning) dan audit keamanan (security auditing).** Nmap dirancang untuk `mendeteksi host aktif`, `mengidentifikasi layanan yang berjalan pada port tertentu`, `mengenali sistem operasi yang digunakan oleh target`, dan `mengumpulkan berbagai informasi lain yang berguna dalam proses penetration testing`, `inventarisasi jaringan`, atau `manajemen keamanan jaringan`.
+[Nmap (Network Mapper)](https://nmap.org/) adalah sebuah tool open-source yang digunakan untuk melakukan pemindaian jaringan (network scanning) dan audit keamanan (security auditing). `Nmap` dirancang untuk `mendeteksi host aktif`, `mengidentifikasi layanan yang berjalan pada port tertentu`, `mengenali sistem operasi yang digunakan oleh target`, dan `mengumpulkan berbagai informasi lain yang berguna dalam proses penetration testing`, `inventarisasi jaringan`, atau `manajemen keamanan jaringan`.
 
-Nmap memiliki antarmuka berbasis `command-line`, tetapi juga tersedia dalam versi `GUI` bernama `Zenmap` untuk mempermudah pengguna yang lebih nyaman menggunakan antarmuka grafis.
+`Nmap` memiliki antarmuka berbasis `command-line`, tetapi juga tersedia dalam versi `GUI` bernama `Zenmap` untuk mempermudah pengguna yang lebih nyaman menggunakan antarmuka grafis.
 
 ## B. Tujuan dan Fungsi Utama Nmap
 
-Berikut adalah beberapa fungsi utama Nmap:
+Berikut adalah beberapa fungsi utama `Nmap`:
 - **Host Discovery**: Menentukan host mana yang aktif (alive) dalam jaringan.
 - **Port Scanning**: Mengidentifikasi port mana yang terbuka dan layanan apa yang berjalan pada port tersebut.
 - **Service Version Detection**: Menemukan versi aplikasi atau layanan yang berjalan di port tertentu.
 - **Operating System Detection**: Mendeteksi sistem operasi dan informasi `TCP/IP stack` target.
-- **Scriptable Interaction**: Dengan fitur `Nmap Scripting Engine` (NSE), pengguna bisa menjalankan script untuk `deteksi kerentanan`, `brute force`, `malware scanning`, `dll`.
+- **Scriptable Interaction**: Dengan fitur `Nmap Scripting Engine (NSE)`, pengguna bisa menjalankan script untuk `deteksi kerentanan`, `brute force`, `malware scanning`, `dll`.
 - **Network Mapping**: Membantu memetakan topologi jaringan.
 
 ## C. Kelebihan Nmap
@@ -51,4 +51,4 @@ Perintah di atas akan memindai host `192.168.1.1` dan menampilkan port terbuka b
 
 ## Kesimpulan
 
-Nmap adalah tools yang sangat penting dan wajib dikuasai oleh siapa saja yang berkecimpung di bidang `keamanan jaringan`, `administrasi sistem`, atau `penetration testing`. Kekuatan dan fleksibilitasnya menjadikan Nmap sebagai tools standar de facto dalam industri keamanan siber.
+`Nmap` adalah tools yang sangat penting dan wajib dikuasai oleh siapa saja yang berkecimpung di bidang `keamanan jaringan`, `administrasi sistem`, atau `penetration testing`. Kekuatan dan fleksibilitasnya menjadikan `Nmap` sebagai tools standar de facto dalam industri keamanan siber.
