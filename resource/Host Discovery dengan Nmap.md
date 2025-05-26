@@ -1,143 +1,138 @@
 # Host Discovery dengan Nmap
 
-`Host Discovery` adalah langkah awal dalam pemindaian jaringan menggunakan `Nmap` untuk mengidentifikasi `host` yang aktif (`online`) sebelum melakukan pemindaian port atau layanan lebih lanjut. Berikut adalah penjelasan opsi `host discovery` yang umum digunakan:
+## Pendahuluan
 
-## 1. List Scan (-sL)
-- **Deskripsi**: Hanya mencantumkan daftar target yang akan dipindai tanpa melakukan pemindaian aktual.
-- **Fungsi**: Digunakan untuk memverifikasi `daftar IP` atau `hostname` tanpa mengirimkan paket ke target.
+Sebelum melakukan `scanning port` atau `service`, kita perlu mengetahui host mana saja yang aktif di jaringan. Proses ini disebut `host discovery`, dan `Nmap` menyediakan berbagai metode untuk mendeteksi apakah suatu host sedang hidup (`up`) atau tidak (`down`).
 
-**Contoh:**
+## Tujuan Host Discovery
+- Menentukan target yang benar-benar aktif.
+- Menghindari waktu dan sumber daya untuk memindai host yang mati.
+- Langkah awal dalam `enumeration jaringan`.
 
-```
-nmap -sL 192.168.1.0/24
-```
+## A. Metode Host Discovery di Nmap
 
-**Kegunaan**: Cocok untuk membuat inventaris target sebelum pemindaian.
+Secara default, ketika kamu menjalankan `Nmap` tanpa opsi scan port, `Nmap` hanya melakukan `host discovery`.
 
-## 2. Ping Scan (-sn)
-- **Deskripsi**: Melakukan `ping scan` tanpa memindai port (hanya mendeteksi `host` aktif).
-- **Fungsi**: Menggunakan metode seperti `ICMP echo request` atau `TCP/UDP probe` untuk memeriksa keberadaan `host`.
-
-**Contoh:**
+**Default Ping Scan (tanpa opsi)**
 
 ```
-nmap -sn 192.168.1.0/24
+nmap 192.168.1.0/24
 ```
 
-**Kegunaan**: Cepat untuk menemukan `host` aktif di jaringan.
+Akan mengirim:
+- `ICMP Echo Request` (ping)
+- `TCP SYN` ke port `443`
+- `TCP ACK` ke port `80`
+- `ICMP Timestamp Request`
 
-## 3. Skip Host Discovery (-Pn)
-- **Deskripsi**: Menganggap semua `host online` dan langsung melakukan pemindaian port tanpa penemuan `host`.
-- **Fungsi**: Berguna saat `firewall` memblokir `ping` atau saat Anda yakin `host` aktif.
+## B. Opsi Khusus untuk Host Discovery
 
-**Contoh:**
+| Opsi | Nama	| Keterangan |
+|:--:|:--:|:--:|
+| `-sn`	| `No port scan` | Hanya lakukan `host discovery` (tanpa scan port). |
+| `-Pn`	| `Ping no` | Jangan lakukan `ping`, anggap semua host `up`. |
+| `-PS`	| `TCP SYN ping` | Kirim `SYN` ke port tertentu. |
+| `-PA`	| `TCP ACK ping` | Kirim `ACK` ke port tertentu. |
+| `-PU`	| `UDP ping` | Kirim `UDP` ke port tertentu. |
+| `-PE`	| `ICMP Echo` | Kirim `ICMP Echo request`. |
+| `-PP`	| `ICMP Timestamp` | Kirim `ICMP timestamp request`. |
+| `-PM`	| `ICMP Netmask` | Kirim `ICMP address mask request`. |
 
-```
-nmap -Pn 192.168.1.100
-```
+## C. Contoh Penggunaan
 
-**Kegunaan**: Menghemat waktu pada target yang diketahui aktif.
+1. `Ping Scan` Tanpa `Port Scanning`
 
-## 4. TCP SYN, TCP ACK, UDP, atau SCTP Discovery (-PS/-PA/-PU/-PY)
-- **Deskripsi**: Mengirimkan paket `TCP SYN` (`-PS`), `TCP ACK` (`-PA`), `UDP` (`-PU`), atau `SCTP` (`-PY`) ke daftar port tertentu untuk mendeteksi `host` aktif.
-- **Fungsi**: Menentukan apakah `host` merespons pada port tertentu.
+   ```
+   nmap -sn 192.168.1.0/24
+   ```
 
-**Contoh:**
+   Digunakan untuk mencari host yang hidup di dalam subnet tanpa scan port.
 
-```
-nmap -PS22,80,443 192.168.1.100
-```
+2. Scan dengan `TCP SYN Ping` (Port `80`)
 
-**Kegunaan**: Efektif untuk melewati `firewall` yang memblokir `ICMP`.
+   ```
+   nmap -PS80 192.168.1.1-20
+   ```
 
-## 5. ICMP Echo, Timestamp, dan Netmask Request (-PE/-PP/-PM)
-- **Deskripsi**:
-  - `-PE`: Mengirim `ICMP Echo Request` (`ping` standar).
-  - `-PP`: Mengirim `ICMP Timestamp Request`.
-  - `-PM`: Mengirim `ICMP Netmask Request`.
-- **Fungsi**: Mendeteksi `host` menggunakan variasi paket `ICMP`.
+   Kirim paket `TCP SYN` ke port `80` untuk mendeteksi host aktif.
 
-**Contoh:**
+3. `ICMP Echo Ping` Saja
 
-```
-nmap -PE 192.168.1.0/24
-```
+   ```
+   nmap -PE 10.0.0.0/24
+   ```
 
-**Kegunaan**: Berguna untuk jaringan yang mengizinkan lalu lintas `ICMP`.
+   Kirim `ping klasik (ICMP echo)` ke setiap host.
 
-## 6. IP Protocol Ping (-PO)
-**Deskripsi**: Mengirimkan paket dengan protokol `IP` tertentu (misalnya, `ICMP`, `IGMP`) untuk mendeteksi `host`.
-**Fungsi**: Menguji respons `host` terhadap protokol tertentu.
-    
-**Contoh:**
+4. Gabungkan Beberapa Teknik Ping
 
-```
-nmap -PO1,2 192.168.1.100
-```
+   ```
+   nmap -PE -PS22,80,443 -PU53 192.168.1.0/24
+   ```
 
-**Kegunaan**: Alternatif untuk penemuan `host` saat `ICMP` diblokir.
+   Menggabungkan `ICMP`, `TCP SYN` ke port `22/80/443`, dan `UDP` ke port `53`.
 
-## 7. Pengaturan Resolusi DNS (-n/-R)
-- **Deskripsi**:
-  - `-n`: Tidak melakukan `resolusi DNS` (menghemat waktu).
-  - `-R`: Selalu melakukan `resolusi DNS` untuk setiap `host`.
-- **Fungsi**: Mengontrol apakah `Nmap` mencoba menerjemahkan `IP` ke `hostname`.
+5. Lewati `Host Discovery`
 
-**Contoh:**
+   ```
+   nmap -Pn target.com
+   ```
 
-```
-nmap -n 192.168.1.0/24
-nmap -R 192.168.1.100
-```
+   Langsung lakukan scan meskipun host tidak merespons ping (berguna untuk host yang dibelakang firewall).
 
-**Kegunaan**: `-n` untuk kecepatan, `-R` untuk detail tambahan.
+## Kapan Menggunakan Opsi Tertentu?
 
-## 8. Custom DNS Servers (--dns-servers)
-**Deskripsi**: Menentukan `server DNS` khusus untuk resolusi nama.
-**Fungsi**: Menggantikan `server DNS` default sistem untuk keandalan atau kecepatan.
-    
-**Contoh:**
+| Skenario | Opsi yang Disarankan |
+|:--:|:--:|
+| Host dibelakang firewall | `-Pn` atau `-PS443` |
+| Host hanya merespons `ICMP` | `-PE` |
+| Jaringan besar, ping saja | `-sn` |
+| Port tertentu dibuka | `-PS<port>`, `-PA<port>` |
+
+## Output Contoh
 
 ```
-nmap --dns-servers 8.8.8.8,8.8.4.4 192.168.1.100
+$ nmap -sn 192.168.1.0/24
+
+Starting Nmap 7.95 ( https://nmap.org ) at 2025-05-27 05:08 WIB
+Nmap scan report for 192.168.1.1
+Host is up (0.0057s latency).
+MAC Address: 68:58:11:25:43:20 (Fiberhome Telecommunication Technologies)
+Nmap scan report for 192.168.1.3
+Host is up (0.074s latency).
+MAC Address: 90:D4:73:EB:B7:22 (vivo Mobile Communication)
+Nmap scan report for 192.168.1.6
+Host is up (0.078s latency).
+MAC Address: E2:BC:EF:24:5A:4E (Unknown)
+Nmap scan report for 192.168.1.7
+Host is up (0.046s latency).
+MAC Address: 6A:B5:A6:F7:5F:D6 (Unknown)
+Nmap scan report for 192.168.1.10
+Host is up (0.00050s latency).
+MAC Address: 08:00:27:73:F9:94 (PCS Systemtechnik/Oracle VirtualBox virtual NIC)
+Nmap scan report for 192.168.1.13
+Host is up (0.10s latency).
+MAC Address: 8E:72:04:67:85:25 (Unknown)
+Nmap scan report for 192.168.1.11
+Host is up.
+Nmap done: 256 IP addresses (7 hosts up) scanned in 3.13 seconds
 ```
 
-**Kegunaan**: Berguna di jaringan dengan `DNS internal` atau saat server default tidak responsif.
+## Tips Tambahan
+- Gunakan `-v` atau `-vv` untuk melihat info lebih detail saat scan berjalan.
+- Gunakan `-n` untuk skip `DNS resolution` jika tidak diperlukan, mempercepat proses.
+- Tambahkan `-oG` atau `-oN` untuk menyimpan hasil scan ke file.
 
-## 9. Gunakan DNS Sistem (--system-dns)
-- **Deskripsi**: Menggunakan `resolver DNS` bawaan sistem operasi.
-- **Fungsi**: Menghindari penggunaan `resolver DNS` internal `Nmap`.
+## Catatan Keamanan
 
-**Contoh:**
+Beberapa `firewall` atau `IDS (Intrusion Detection System)` akan mendeteksi dan memblokir `ping` atau `SYN scan`. Dalam kasus seperti itu:
+- Gunakan teknik `stealth scan`.
+- Gunakan kombinasi `-Pn` dan `-sS`.
+- Lakukan `footprinting pasif` sebelum aktif scanning.
 
-```
-nmap --system-dns 192.168.1.100
-```
+## Kesimpulan
 
-**Kegunaan**: Kompatibilitas dengan konfigurasi `DNS sistem`.
-
-# 10. Lacak Jalur Hop (--traceroute)
-- **Deskripsi**: Melacak rute paket dari sumber ke setiap `host` target.
-- **Fungsi**: Menampilkan hop jaringan (`router`) yang dilewati menuju target.
-
-**Contoh:**
-
-```   
-nmap --traceroute 192.168.1.100
-```
-
-**Kegunaan**: Membantu memahami topologi jaringan dan mengidentifikasi masalah konektivitas.
-
-## Contoh Kombinasi Perintah
-
-```
-nmap -sn -PE -PS22,80 192.168.1.0/24 --traceroute
-```
-
-Perintah ini melakukan `ping scan` dengan `ICMP Echo` dan `TCP SYN` ke port `22` dan `80`, lalu melacak rute ke `host` aktif.
-
-## Catatan Penting
-- `Host Discovery` adalah langkah krusial untuk efisiensi pemindaian, karena hanya host aktif yang akan dipindai lebih lanjut.
-- Kombinasi opsi (misalnya, `-PE` `-PS22`,`80`) dapat digunakan untuk meningkatkan akurasi deteksi.
-- Pertimbangkan `firewall` dan kebijakan jaringan target untuk memilih metode yang tepat.
-- Selalu gunakan `Nmap` dengan izin yang sah untuk menghindari masalah hukum.
+`Host Discovery` adalah tahap krusial dalam `penetration testing` menggunakan `Nmap`. Dengan teknik-teknik ini, kamu bisa dengan cepat:
+- menentukan target yang aktif.
+- menyusun strategi scanning.
+- menghindari pemborosan waktu pada host yang mati.
