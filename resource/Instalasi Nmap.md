@@ -1,92 +1,115 @@
 # Instalasi Nmap
 
-`Nmap` dapat dijalankan di berbagai sistem operasi, termasuk `Linux`, `Windows`, dan `macOS`. Berikut adalah panduan instalasi `Nmap` berdasarkan platform:
+## A. Pendahuluan
 
-## A. Cara Instalasi di Linux (Debian, Kali, Ubuntu)
+Sebelum mulai menggunakan `Nmap`, kita perlu menginstalnya terlebih dahulu. `Nmap` tersedia secara `gratis` dan `open-source`, serta dapat dijalankan di berbagai sistem operasi, seperti `Linux`, `Windows`, dan `macOS`.
 
-**1. Melalui Package Manager (APT)**  
-  
-   Cocok untuk distro berbasis `Debian` seperti `Ubuntu`, `Kali Linux`, `Linux Mint`.
+## B. Instalasi Nmap di Linux
 
-   ```
-   sudo apt update
-   sudo apt install nmap -y
-   ```
-
-**2. Cek versi setelah instalasi:**  
- 
-   ```
-   nmap --version                            
-   ```
-
-   Jika output menampilkan versi, berarti `Nmap` berhasil terpasang.
-
-## B. Cara Instalasi Nmap di Windows
-
-**1. Download Installer**  
-  
-   - Kunjungi situs resmi: https://nmap.org/download.html
-   - Pilih: `Microsoft Windows binaries`
-   - Unduh file: `nmap-<versi>-setup.exe`
-
-**2. Langkah Instalasi**  
-  
-   - Jalankan installer `.exe` seperti program `Windows` biasa.
-   - Ikuti petunjuk wizard: `Next` -> `Agree` -> `Next` -> `Install`
-   - Pastikan opsi `Add Nmap to the system PATH` dicentang.
-
-**3. Verifikasi**  
-  
-   Buka `Command Prompt` (`cmd`) dan jalankan:
-
-   ```
-   nmap --version
-   ```
-
-   Jika output menampilkan versi, berarti `Nmap` berhasil terpasang.
-
-## C. Cara Instalasi Nmap di macOS
-
-**1. Menggunakan Homebrew (Direkomendasikan)**  
-   
-   Jika belum ada `Homebrew`:
-
-   ```
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
-
-   Instal `Nmap`:
-
-   ```
-   brew install nmap
-   ```
-
-**2. Verifikasi Instalasi**  
-
-   ```
-   nmap --version
-   ```
-
-   Jika output menampilkan versi, berarti `Nmap` berhasil terpasang.
-
-## D. Catatan Tambahan
-
-| Sistem Operasi | Metode Instalasi | Catatan |
-|:--:|:--:|:--:|
-| `Debian/Ubuntu` | `apt` | Versi `Nmap` kadang tidak terbaru |
-| `Windows` | Installer `.exe` | `GUI Zenmap` juga terinstal otomatis |
-| `macOS` | `brew` | Mudah diupdate melalui `Homebrew` |
-
-## Tips
-
-Untuk update ke versi terbaru secara manual, kamu bisa `meng-compile` dari `source code`:
+### 1. Debian/Ubuntu/Kali Linux
 
 ```
-git clone https://github.com/nmap/nmap
-cd nmap
+sudo apt update
+sudo apt install nmap
+```
+
+`Nmap` biasanya sudah `pre-installed` di `Kali Linux`, tapi tetap bisa di-update melalui `APT`.
+
+### 2. Fedora
+
+```
+sudo dnf install nmap
+```
+
+### 3. Arch Linux/Manjaro
+
+```
+sudo pacman -S nmap
+```
+
+**Cek versi Nmap:**
+
+```
+nmap --version
+```
+
+## C. Instalasi Nmap di Windows
+
+### Langkah-langkah:
+
+- Kunjungi situs resmi `Nmap`:  
+  https://nmap.org/download.html
+- Unduh `Windows Installer` (biasanya bernama `nmap-[versi]-setup.exe`).
+- Jalankan `installer` seperti biasa (klik dua kali file `.exe`).
+- Pilih komponen yang ingin diinstal:
+  - `Nmap Core Files`
+  - `Register Nmap Path`
+  - `Npcap 1.82`
+  - `Network Performance Inprovements`
+  - `Ncat (Modern Netcat reincarnation)`
+  - `Nping (Packet generator)`
+  - `Zenmap (GUI Frontend)`
+  - `Ndiff (Scan comparison tool)`
+- Klik `Next` hingga selesai.
+- Setelah instalasi, buka `Command Prompt (cmd)` dan jalankan:
+
+```
+nmap --version
+```
+
+Jika muncul versi, maka instalasi berhasil.
+
+## D. Instalasi Nmap di macOS
+
+### 1. Opsi 1: Menggunakan Homebrew (disarankan)
+
+Pastikan `Homebrew` sudah terpasang. Jika belum:
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+**Install Nmap:**
+
+```
+brew install nmap
+```
+
+### 2. Opsi 2: Menggunakan Installer Resmi
+- Download dari: https://nmap.org/download.html
+- Pilih file `.dmg` untuk `macOS`
+- Seret ikon `Nmap` ke folder `Applications`
+
+## E. Catatan Tambahan
+
+Jika ingin menggunakan `Nmap` terbaru, sebaiknya kompilasi dari `source`.
+
+**Untuk Linux:**
+
+```
+sudo apt install build-essential
+wget https://nmap.org/dist/nmap-7.94.tgz
+tar xvf nmap-7.94.tgz
+cd nmap-7.94
 ./configure
 make
 sudo make install
 ```
 
-Tapi untuk pemula dan penggunaan umum, pakai `package manager` sudah cukup.
+**Cek versi:**
+
+```
+nmap --version
+```
+
+## F. Hak Akses
+
+`Nmap` membutuhkan izin `root` untuk menjalankan beberapa teknik scanning (seperti `SYN scan`, `OS detection`). Maka dari itu, gunakan `sudo` jika dibutuhkan:
+
+```
+sudo nmap -sS 192.168.1.1
+```
+
+## Kesimpulan
+
+Instalasi `Nmap` cukup mudah dan tersedia di hampir semua sistem operasi utama. Pastikan selalu menggunakan versi terbaru untuk mendapatkan dukungan fitur dan keamanan yang optimal. Setelah instalasi selesai, kamu siap menggunakan `Nmap` untuk `scanning`, `deteksi OS`, `pemetaan jaringan`, dan `eksplorasi kerentanan`.
