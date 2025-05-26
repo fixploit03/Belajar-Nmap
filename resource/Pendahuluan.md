@@ -1,15 +1,60 @@
-## Pendahuluan
+# Pendahuluan
 
-Dalam era digital yang serba terkoneksi saat ini, keamanan jaringan menjadi salah satu pilar utama dalam menjaga kestabilan sistem informasi dan perlindungan data. Ancaman seperti `port terbuka yang tidak diketahui`, `service yang rentan`, atau `konfigurasi jaringan yang lemah` dapat membuka celah bagi `peretas` untuk mengeksploitasi sistem. Untuk itulah dibutuhkan alat yang andal dan akurat dalam melakukan `pemetaan jaringan` serta `identifikasi potensi risiko`, dan di sinilah `Nmap` (`Network Mapper`) memainkan peran krusialnya.
+## A. Mengenal Dunia Keamanan Jaringan
 
-`Nmap` adalah salah satu tools `open-source` paling terkenal dan paling banyak digunakan dalam dunia `cybersecurity` dan `network auditing`. Dengan kemampuan untuk `memindai port`, `mendeteksi service`, `sistem operasi`, `topologi jaringan`, hingga `menemukan kerentanan` menggunakan `NSE` (`Nmap Scripting Engine`), `Nmap` menjadi alat wajib bagi seorang `ethical hacker`, `penetration tester`, `network administrator`, dan `sysadmin`.
+Dalam era digital yang semakin berkembang pesat, keamanan jaringan menjadi salah satu aspek krusial dalam perlindungan data dan sistem. Setiap hari, berbagai sistem terhubung melalui internet dan jaringan lokal, mulai dari server perusahaan, perangkat IoT, hingga infrastruktur kritikal seperti sistem perbankan dan kesehatan. Dengan meningkatnya konektivitas ini, muncul pula berbagai ancaman keamanan seperti serangan siber, peretasan, dan eksploitasi kerentanan.
 
-Materi ini disusun secara sistematis untuk membantu Anda mempelajari dan menguasai penggunaan `Nmap`, mulai dari `pengenalan dasar`, `teknik scanning lanjutan`, `penggunaan scripting engine`, hingga `integrasi Nmap dengan berbagai tools penetration testing lainnya` seperti `Metasploit`, `Nikto`, `Dirb`, dan `otomatisasi` menggunakan `script`. Setiap materi dirancang agar Anda tidak hanya memahami konsep, tetapi juga mampu menerapkan langsung dalam skenario nyata dan lab pengujian.
+Agar sistem tetap aman, diperlukan pendekatan proaktif dalam mengidentifikasi kelemahan dan celah yang mungkin dimanfaatkan oleh pihak yang tidak bertanggung jawab. Inilah pentingnya dilakukan aktivitas penetration testing (pengujian penetrasi) atau yang biasa disebut `pentest`.
 
-Penyampaian materi ini dikemas dengan bahasa yang sederhana dan praktis, sehingga cocok baik untuk pemula yang baru mulai belajar `network scanning` dan `cybersecurity`, maupun untuk praktisi berpengalaman yang ingin memperdalam penggunaan fitur-fitur lanjutan `Nmap`.
+## B. Peran Network Scanning dalam Pentest
 
-Harapannya, materi ini tidak hanya menjadi referensi teknis semata, tetapi juga membentuk mindset profesional dalam pendekatan keamanan jaringan: bukan hanya menyerang, tetapi juga `memahami`, `menganalisis`, dan `memperkuat sistem dari dalam`.
+Salah satu langkah awal dalam penetration testing adalah melakukan `network reconnaissance` atau pengintaian jaringan, yang bertujuan untuk:
 
-Selamat belajar, semoga Anda mendapatkan pemahaman mendalam serta semangat baru untuk berkontribusi dalam menciptakan dunia digital yang `aman`, `transparan`, dan `terpercaya`.
+- Menemukan host aktif di jaringan.
+- Mengidentifikasi port terbuka dan layanan yang berjalan.
+- Menentukan versi layanan dan sistem operasi target.
 
-Salam hormat, **Rofi (Fixploit03)**
+Tanpa informasi ini, seorang pentester seperti bekerja dalam gelap. Di sinilah tools seperti Nmap berperan sangat penting.
+
+## C. Kenapa Harus Nmap?
+
+Nmap (Network Mapper) adalah alat pemindai jaringan yang sangat populer dan serbaguna, digunakan oleh:
+
+- Administrator jaringan untuk audit dan monitoring.
+- Penetration tester untuk persiapan eksploitasi.
+- Peneliti keamanan untuk eksplorasi infrastruktur.
+
+Nmap tidak hanya mampu melakukan scanning IP dan port, tapi juga mendeteksi sistem operasi, fingerprint layanan, bahkan menjalankan script otomatis untuk deteksi kerentanan melalui fitur `Nmap Scripting Engine (NSE)`.
+
+## D. Tujuan Panduan Ini
+
+Panduan ini disusun untuk membantu kamu, baik sebagai pemula maupun praktisi, dalam:
+
+- Memahami konsep dasar dan sejarah Nmap.
+- Mempelajari cara instalasi dan struktur folder Nmap.
+- Menguasai teknik scanning dari dasar hingga lanjutan.
+- Menjelajahi fitur scripting dan integrasi Nmap dengan tools lain.
+- Mempraktikkan penggunaan Nmap dalam skenario nyata pentesting.
+
+## E. Siapa yang Cocok Membaca Panduan Ini?
+
+- Mahasiswa atau pelajar yang tertarik dengan etical hacking.
+- Praktisi IT yang ingin memahami lebih dalam soal keamanan jaringan.
+- Penetration tester yang ingin mengoptimalkan penggunaan Nmap.
+- Siapa saja yang ingin belajar mengamankan jaringan dan memahami bagaimana jaringan dapat dipetakan oleh pihak luar.
+
+## F. Pengetahuan Dasar yang Dibutuhkan
+
+Untuk memahami panduan ini secara optimal, kamu disarankan memiliki pemahaman dasar tentang:
+
+- Jaringan komputer (`IP`, `subnet`, `port`, `TCP/UDP`).
+- Sistem operasi Linux (terutama untuk praktik menggunakan terminal).
+- Konsep dasar keamanan informasi.
+
+Namun, kamu tidak perlu khawatir, setiap konsep teknis akan dijelaskan secara langkah demi langkah dengan bahasa yang mudah dipahami.
+
+## Siap untuk Belajar Nmap?
+
+Mari mulai petualangan ini dengan mengenal terlebih dahulu:
+
+> [Apa Itu Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Apa%20Itu%20Nmap%3F.md)
