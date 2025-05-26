@@ -73,3 +73,7 @@ Namun, penggunaan tanpa izin untuk menyusup ke jaringan orang lain bisa melangga
 Nmap adalah tool yang sangat penting dalam dunia keamanan jaringan. Dengan fitur-fitur canggih seperti `port scanning`, `OS detection`, dan `scripting engine`, Nmap memberikan kemampuan luar biasa bagi siapa saja yang ingin memahami atau mengamankan infrastruktur jaringan.
 
 > Di bab berikutnya, kita akan menyelami sejarah Nmap: bagaimana tool ini bermula dan berkembang menjadi alat yang tak tergantikan dalam toolkit ethical hacker modern.
+
+Siap lanjut ke Sejarah Nmap?
+
+> [Sejarah Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Sejarah%20Nmap.md)
