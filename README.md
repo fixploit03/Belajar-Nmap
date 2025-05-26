@@ -23,6 +23,13 @@
 
 ## Daftar Isi
 - [Pendahuluan](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md)
+  - [Mengenal Dunia Keamanan Jaringan](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md#a-mengenal-dunia-keamanan-jaringan)
+  - [Peran Network Scanning dalam Pentest](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md#b-peran-network-scanning-dalam-pentest)
+  - [Kenapa Harus Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md#c-kenapa-harus-nmap)
+  - [Tujuan Panduan Ini](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md#d-tujuan-panduan-ini)
+  - [Siapa yang Cocok Membaca Panduan Ini?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md#e-siapa-yang-cocok-membaca-panduan-ini)
+  - [Pengetahuan Dasar yang Dibutuhkan](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md#f-pengetahuan-dasar-yang-dibutuhkan)
+  - [Siap untuk Belajar Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Pendahuluan.md#siap-untuk-belajar-nmap)
 - [Apa Itu Nmap?](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Apa%20Itu%20Nmap%3F.md)
 - [Sejarah Nmap](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Sejarah%20Nmap.md)
 - [Kegunaan dan Fungsi Nmap dalam Penetration Testing](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Kegunaan%20dan%20Fungsi%20Nmap%20dalam%20Penetration%20Testing.md)
