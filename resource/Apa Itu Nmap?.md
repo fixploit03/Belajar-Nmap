@@ -53,7 +53,7 @@ Scan lanjutan: deteksi versi layanan dan sistem operasi.
 - **Dibuat oleh**: [Gordon Lyon (Fyodor)](https://en.wikipedia.org/wiki/Gordon_Lyon)
 - **Rilis pertama**: `1997`
 - **Bahasa pemrograman**: `C`, `Lua`, `Python`
-- **Lisensi**: `GPL` (GNU General Public License)
+- **Lisensi**: `GPL (GNU General Public License)`
 - **Situs resmi**: [https://nmap.org](https://nmap.org)
 
 Sejak perilisannya, Nmap terus berkembang dan menjadi standar de facto dalam dunia network scanning dan ethical hacking.
