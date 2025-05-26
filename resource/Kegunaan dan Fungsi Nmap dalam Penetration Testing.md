@@ -2,7 +2,7 @@
 
 ## A. Pengantar
 
-Dalam dunia `penetration testing` (pentest), informasi awal tentang target sangat penting. Proses ini disebut `reconnaissance` atau `information gathering`. Di sinilah `Nmap` menjadi alat yang vital dan sangat powerful, karena dapat mengumpulkan banyak informasi penting hanya dengan beberapa baris perintah.
+Dalam dunia `penetration testing (pentest)`, informasi awal tentang target sangat penting. Proses ini disebut `reconnaissance` atau `information gathering`. Di sinilah `Nmap` menjadi alat yang vital dan sangat powerful, karena dapat mengumpulkan banyak informasi penting hanya dengan beberapa baris perintah.
 
 ## B. Peran Nmap dalam Tahapan Penetration Testing
 
@@ -48,7 +48,7 @@ Mengidentifikasi versi layanan yang berjalan di port tertentu.
 nmap -sV 192.168.1.10
 ```
 
-Informasi versi sangat penting untuk mencari `CVE` (Common Vulnerabilities and Exposures).
+Informasi versi sangat penting untuk mencari `CVE (Common Vulnerabilities and Exposures)`.
 
 ### 4. OS Detection
 
@@ -90,7 +90,7 @@ Seorang `pentester` diminta mengaudit jaringan perusahaan. Dengan `Nmap`, dia bi
 - Menemukan versi aplikasi dan OS (version & OS detection)
 - Mengidentifikasi kerentanan (NSE script vuln scan)
 
-Dalam waktu singkat, pentester dapat mengidentifikasi potensi risiko keamanan dan membuat laporan yang akurat.
+Dalam waktu singkat, `pentester` dapat mengidentifikasi potensi risiko keamanan dan membuat laporan yang akurat.
 
 ## F. Kelebihan Nmap dalam Pentesting
 - Cepat dan efisien
