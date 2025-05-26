@@ -1,132 +1,154 @@
 # Scan Port dan Host Lebih Lanjut
 
-`Nmap` bukan hanya untuk pemindaian dasar. Dalam praktik keamanan jaringan dan penetration testing, kita sering dihadapkan pada kebutuhan untuk:
-- Memindai port tertentu saja
-- Memindai banyak host dalam satu jaringan
-- Menghindari deteksi oleh `IDS/IPS` (`Intrusion Detection/Prevention Systems`)
+## Pendahuluan
 
-Bagian ini membahas teknik pemindaian lanjutan untuk port dan host, serta bagaimana melakukan `stealth scan` dan `evasion` untuk tetap tidak terdeteksi.
+Memperdalam penggunaan Nmap untuk melakukan scanning lebih detail, termasuk range IP, berbagai jenis port, teknik pengoptimalan kecepatan scan, serta deteksi layanan dan sistem operasi.
 
-## A. Scan Port Tertentu dan Range Port
+## 1. Memindai Banyak IP Sekaligus
 
-Secara default, `Nmap` akan memindai `1.000` port paling umum (`well-known ports`). Namun kita bisa menentukan port spesifik atau rentang port tertentu.
+Nmap mendukung scanning multiple target dalam berbagai format:
 
-**1. Contoh Scan Port Tertentu**
+| Target	| Contoh |
+|:--:|:--:|
+| Satu IP | `nmap 192.168.1.1` |
+| Banyak IP	| `nmap 192.168.1.1 192.168.1.2` |
+| IP range	| `nmap 192.168.1.1-100` |
+| CIDR notation | `nmap 192.168.1.0/24` |
+| Dari file	| `nmap -iL list.txt` |
+| Semua kecuali | `nmap --exclude 192.168.1.5,192.168.1.10` |
 
-   ```
-   nmap -p 80 192.168.1.10
-   ```
+Contoh:
 
-   Memindai port `80` saja pada host `192.168.1.10`
+```
+nmap -sS 192.168.1.1-100
+nmap -iL daftar_target.txt
+```
+
+## 2. Scan Port Lebih Spesifik
+
+Secara default, Nmap memindai `1.000` port `TCP` paling umum. Namun kamu bisa memindai:
+
+1. Port Tertentu:
 
    ```
    nmap -p 22,80,443 192.168.1.10
    ```
-    
-   Memindai port `22`, `80`, dan `443` secara spesifik
 
-**2. Contoh Scan Range Port**
+2. Port Range:
 
    ```
-   nmap -p 1-1000 192.168.1.10
+   nmap -p 1-65535 192.168.1.10
    ```
 
-   Memindai port `1` hingga `1000`
-
-**3. Gabungan `Port` + `Range`**
+3. Semua Port + UDP:
 
    ```
-   nmap -p 21-25,80,110,443 192.168.1.10
+   nmap -sS -sU -p T:1-65535,U:1-1000 192.168.1.10
    ```
 
-   Memindai port dari `21` sampai `25`, dan juga port `80`, `110`, dan `443`
+## 3. Service Detection (-sV)
 
-## B. Scan Multiple Host dan Subnet
+Untuk mengetahui nama layanan dan versinya, gunakan:
 
-`Nmap` sangat fleksibel untuk scan banyak host sekaligus. Kamu bisa menggunakan format `IP list`, `range`, `subnet`, bahkan `file`.
+```
+nmap -sV 192.168.1.10
+```
 
-**1. Scan Banyak Host Sekaligus**
+Contoh hasil:
 
-   ```
-   nmap 192.168.1.1 192.168.1.2 192.168.1.3
-   ```
+```
+PORT     STATE SERVICE VERSION
+22/tcp   open  ssh     OpenSSH 7.9p1 Debian
+80/tcp   open  http    Apache httpd 2.4.38
+```
 
-**2. Gunakan Range IP**
+Informasi ini sangat krusial untuk eksploitasi.
 
-   ```
-   nmap 192.168.1.1-50
-   ```
+## 4. OS Detection (-O)
 
-   Memindai host dari `192.168.1.1` hingga `192.168.1.50`
+Nmap bisa mencoba menebak jenis sistem operasi target berdasarkan `fingerprint TCP/IP`:
 
-**3. Gunakan CIDR/Subnet**
+```
+nmap -O 192.168.1.10
+```
 
-   ```
-   nmap 192.168.1.0/24
-   ```
+Butuh privilege `root` dan hasil bisa tidak akurat jika firewall aktif.
 
-   Memindai seluruh subnet `/24` (yaitu `192.168.1.1` sampai `192.168.1.254`)
+## 5. Aggressive Scan (-A)
 
-**4. Dari File List**
+Menggabungkan beberapa fitur sekaligus:
+- OS detection
+- Service version
+- Traceroute
+- NSE basic scripts
 
-   ```
-   nmap -iL target.txt
-   ```
-    
-   Memindai semua `IP/host` yang tercantum dalam file `target.txt`
+Contoh:
 
-## C. Teknik Stealth Scan dan Evasion Techniques
+```
+nmap -A 192.168.1.10
+```
 
-Dalam situasi nyata (`real-world pentest`), kamu mungkin tidak ingin terdeteksi oleh sistem keamanan target. `Nmap` menyediakan beberapa teknik untuk menyembunyikan aktivitas pemindaian:
+**Hati-hati**: bising dan mudah terdeteksi oleh `IDS/IPS`.
 
-**1. SYN Scan (Stealth Scan)**
+## 6. Traceroute (--traceroute)
 
-   ```
-   nmap -sS 192.168.1.10
-   ```
+Untuk melihat jalur jaringan menuju target:
 
-   `Half-open scan` (hanya mengirim `SYN` tanpa menyelesaikan koneksi). Ini adalah teknik `stealth` paling umum karena tidak menyelesaikan `three-way handshake`.
+Contoh:
 
-**2. UDP Scan**
+```
+nmap --traceroute 192.168.1.10
+```
 
-   ```
-   nmap -sU 192.168.1.10
-   ```
+## 7. Mengatur Kecepatan Scan
 
-   Digunakan untuk mendeteksi layanan `UDP`. Biasanya lebih lambat dan sering diblokir `firewall`.
+Nmap punya `6` level timing (`-T0` s.d. `-T5`):
 
-**3. Scan dengan Decoy (Kamus IP Palsu)**
+| Level | Deskripsi |
+|:--:|:--:|
+| `-T0` | Paranoid (super lambat) |
+| `-T3` | Normal (default) |
+| `-T4` | Cepat (umum dipakai) |
+| `-T5` | Insane (risiko tinggi, cepat) |
 
-   ```
-   nmap -D RND:5 192.168.1.10
-   ```
+Contoh:
 
-   Menambahkan `5` IP acak sebagai kamuflase untuk menyembunyikan IP asli kita.
+```
+nmap -sS -T4 192.168.1.10
+```
 
-**4. Scan Tanpa DNS Resolution**
+## 8. Output Detail Scan
 
-   ```
-   nmap -n 192.168.1.10
-   ```
+Gunakan `-v` untuk verbose:
 
-Menghindari deteksi lewat `DNS lookup`.
+Contoh:
 
-**5. Mengatur Waktu Scan (Timing)**
+```
+nmap -v -sS 192.168.1.10
+```
 
-   ```
-   nmap -T2 192.168.1.10
-   ```
-    
-   Mode `-T2` = lebih lambat dan `stealthy`. Mode `-T0` hingga `-T5`, semakin tinggi semakin cepat, tapi juga lebih mudah terdeteksi.
+Gunakan `-vv` atau `-d` untuk lebih detail lagi.
 
-**6. Fragmentasi Paket**
+## 9. Contoh Scan Lanjutan
 
-   ```
-   nmap -f 192.168.1.10
-   ```
+**Contoh**: Scan semua port dengan service detection dan OS detection:
 
-   Membagi paket menjadi fragmen kecil agar lebih sulit dideteksi oleh `IDS/IPS`.
+```
+nmap -p- -sS -sV -O 192.168.1.10
+```
 
-## Catatan Penting
-- Teknik `evasive` tidak selalu efektif terhadap semua `firewall` atau `IDS`. Sistem keamanan modern sering mampu mengenali pola-pola aneh.
-- Etika dan legalitas sangat penting. Jangan pernah melakukan scanning pada jaringan tanpa izin.
+**Contoh**: Scan satu subnet penuh dengan agresif:
+
+```
+nmap -A 192.168.1.0/24
+```
+
+## Kesimpulan
+
+Fitur lanjutan dari Nmap memungkinkan penetration tester untuk:
+- Menyesuaikan target scan (multi-IP, subnet, file list).
+- Memindai lebih banyak port dan protokol.
+- Melakukan deteksi layanan dan OS.
+- Mengoptimalkan waktu scan sesuai situasi.
+
+Semua ini membuat Nmap menjadi tool yang luwes dan powerful dalam pengumpulan informasi jaringan.
