@@ -1,115 +1,127 @@
 # Instalasi Nmap
 
-## A. Pendahuluan
+## Pendahuluan
 
-Sebelum mulai menggunakan `Nmap`, kita perlu menginstalnya terlebih dahulu. `Nmap` tersedia secara `gratis` dan `open-source`, serta dapat dijalankan di berbagai sistem operasi, seperti `Linux`, `Windows`, dan `macOS`.
+Sebelum menggunakan Nmap dalam penetration testing atau network scanning, kita perlu melakukan instalasi terlebih dahulu. Nmap dapat diinstal di berbagai sistem operasi seperti:
 
-## B. Instalasi Nmap di Linux
+- Linux (`Debian`, `Ubuntu`, `Kali`, `Arch`, `dll`)
+- macOS
+- Windows
 
-### 1. Debian/Ubuntu/Kali Linux
+Instalasi bisa dilakukan melalui `package manager`, `installer resmi`, atau dengan cara build dari `source code`.
+
+## A. Instalasi Nmap di Linux
+
+**1. Debian, Ubuntu, Kali Linux, Parrot OS, dan turunannya:**
 
 ```
 sudo apt update
 sudo apt install nmap
 ```
 
-`Nmap` biasanya sudah `pre-installed` di `Kali Linux`, tapi tetap bisa di-update melalui `APT`.
-
-### 2. Fedora
-
-```
-sudo dnf install nmap
-```
-
-### 3. Arch Linux/Manjaro
+**2. Arch Linux, Manjaro:**
 
 ```
 sudo pacman -S nmap
 ```
 
-**Cek versi Nmap:**
+**3. Fedora, Red Hat, CentOS:**
 
 ```
-nmap --version
+sudo dnf install nmap
 ```
 
-## C. Instalasi Nmap di Windows
-
-### Langkah-langkah:
-
-- Kunjungi situs resmi `Nmap`:  
-  https://nmap.org/download.html
-- Unduh `Windows Installer` (biasanya bernama `nmap-[versi]-setup.exe`).
-- Jalankan `installer` seperti biasa (klik dua kali file `.exe`).
-- Pilih komponen yang ingin diinstal:
-  - `Nmap Core Files`
-  - `Register Nmap Path`
-  - `Npcap 1.82`
-  - `Network Performance Inprovements`
-  - `Ncat (Modern Netcat reincarnation)`
-  - `Nping (Packet generator)`
-  - `Zenmap (GUI Frontend)`
-  - `Ndiff (Scan comparison tool)`
-- Klik `Next` hingga selesai.
-- Setelah instalasi, buka `Command Prompt (cmd)` dan jalankan:
+**4. OpenSUSE:**
 
 ```
-nmap --version
+sudo zypper install nmap
 ```
 
-Jika muncul versi, maka instalasi berhasil.
+> Catatan: Di `Kali Linux`, Nmap biasanya sudah `pre-installed`.
 
-## D. Instalasi Nmap di macOS
+## B. Instalasi Nmap di Windows
 
-### 1. Opsi 1: Menggunakan Homebrew (disarankan)
+**Langkah-langkah:**
 
-Pastikan `Homebrew` sudah terpasang. Jika belum:
+1. Kunjungi situs resmi: [https://nmap.org/download.html](https://nmap.org/download.html)
+2. Unduh file installer Windows (`nmap-setup.exe`)
+3. Jalankan installer, Klik `Next` sampai selesai
+4. Setelah instalasi, buka `Command Prompt (CMD)` dan ketik:
 
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
+   ```
+   nmap -v
+   ```
 
-**Install Nmap:**
+   Jika berhasil, akan muncul versi Nmap yang terpasang.
 
-```
+> Installer Windows biasanya menyertakan `Zenmap`, GUI dari Nmap.
+
+🍎 Instalasi Nmap di macOS
+Menggunakan Homebrew (disarankan):
+
 brew install nmap
+
+Atau bisa juga:
+
+    Download file .dmg dari situs resmi: https://nmap.org/download.html
+
+    Install secara manual
+
+## Build Nmap dari Source Code (Linux/Mac)
+
+Jika kamu ingin versi terbaru atau ingin melakukan kustomisasi:
+
+**Langkah-langkah:**
+
 ```
-
-### 2. Opsi 2: Menggunakan Installer Resmi
-- Download dari: https://nmap.org/download.html
-- Pilih file `.dmg` untuk `macOS`
-- Seret ikon `Nmap` ke folder `Applications`
-
-## E. Catatan Tambahan
-
-Jika ingin menggunakan `Nmap` terbaru, sebaiknya kompilasi dari `source`.
-
-**Untuk Linux:**
-
-```
-sudo apt install build-essential
-wget https://nmap.org/dist/nmap-7.94.tgz
-tar xvf nmap-7.94.tgz
-cd nmap-7.94
+git clone https://github.com/nmap/nmap.git
+cd nmap
 ./configure
 make
 sudo make install
 ```
+  
+Pastikan kamu sudah menginstall build tools seperti `gcc`, `make`, dan `libpcap-dev`.
 
-**Cek versi:**
+Verifikasi Instalasi
 
-```
-nmap --version
-```
-
-## F. Hak Akses
-
-`Nmap` membutuhkan izin `root` untuk menjalankan beberapa teknik scanning (seperti `SYN scan`, `OS detection`). Maka dari itu, gunakan `sudo` jika dibutuhkan:
+Setelah proses instalasi, cek apakah Nmap sudah dapat dijalankan:
 
 ```
-sudo nmap -sS 192.168.1.1
+nmap -v
 ```
+
+Contoh output:
+
+```
+Nmap version 7.95 ( https://nmap.org )
+Platform: x86_64-pc-linux-gnu
+Compiled with: liblua-5.4.7 openssl-3.5.0 libssh2-1.11.1 libz-1.3.1 libpcre2-10.45 libpcap-1.10.5 nmap-libdnet-1.12 ipv6
+Compiled without:
+Available nsock engines: epoll poll select
+```
+
+## Uji Coba Awal
+
+Coba perintah dasar untuk menguji fungsionalitas:
+
+```
+nmap scanme.nmap.org
+```
+
+`scanme.nmap.org` adalah server resmi yang disediakan oleh Nmap untuk latihan scanning.
+
+## Tips Tambahan
+
+- Selalu gunakan versi terbaru untuk mendapatkan fitur dan script `NSE` terbaru.
+- Di sistem operasi `Linux`, kamu bisa melihat lokasi file Nmap:
+
+   ```
+   which nmap
+   ```
 
 ## Kesimpulan
 
-Instalasi `Nmap` cukup mudah dan tersedia di hampir semua sistem operasi utama. Pastikan selalu menggunakan versi terbaru untuk mendapatkan dukungan fitur dan keamanan yang optimal. Setelah instalasi selesai, kamu siap menggunakan `Nmap` untuk `scanning`, `deteksi OS`, `pemetaan jaringan`, dan `eksplorasi kerentanan`.
+Instalasi Nmap sangat mudah dan fleksibel di berbagai sistem operasi. Setelah berhasil menginstal, kamu siap untuk memulai eksplorasi fitur-fitur powerful yang ditawarkan Nmap dalam proses penetration testing.
+
+> Selanjutnya kita akan membahas: Struktur Folder dan File Penting di Nmap
