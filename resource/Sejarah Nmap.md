@@ -74,4 +74,4 @@ Sejak diperkenalkan pada tahun `1997`, Nmap telah tumbuh dari alat sederhana men
 
 Siap lanjut ke: Kegunaan dan Fungsi Nmap dalam Penetration Testing?
 
-[Kegunaan dan Fungsi Nmap dalam Penetration Testing](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Kegunaan%20dan%20Fungsi%20Nmap%20dalam%20Penetration%20Testing.md)
+> [Kegunaan dan Fungsi Nmap dalam Penetration Testing](https://github.com/fixploit03/Belajar-Nmap/blob/main/resource/Kegunaan%20dan%20Fungsi%20Nmap%20dalam%20Penetration%20Testing.md)
